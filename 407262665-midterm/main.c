@@ -375,42 +375,42 @@ int main()
 	GPIO_PTB_DIR = 0x0000;	//for GPIO
 	GPIO_PTB_CFG = 0xFFFF;	//for push pull
 
-	 unsigned int input[4],LED[8],tmp,count,ans,origin;
+	 unsigned int tmp,count,ans,origin;
+	 unsigned int input[4]={0,0,0,0};
+	 int led=0xff00;
 	 tmp = (GPIO_PTC_PADIN >> 2) & 0x0000000F;
 	 origin =tmp;
 	 ans =tmp;
 	while(1){
-		tmp = (GPIO_PTC_PADIN >> 2) & 0x0000000F;
+	 tmp = (GPIO_PTC_PADIN >> 2) & 0x0000000F;
 		count=0;
 		if(tmp!=origin){
 			ans=tmp;
 			origin = tmp;
 			count=0;
+			for(i=0;i<4;i++)
+				input[i]=0;
+
 			while(ans>0){
-				input[count]=tmp%10;
-				tmp/=10;
+				input[count]=ans%10;
+				ans/=10;
 				count++;
 			}
 		}
+		for(i=0;i<16;i++)
+		GPIO_PTB_GPIO =led;
 
-			for(myi =0;myi<1500;myi++){
-				for(i=0;i<4;i++){
-					GPIO_PTD_GPIO =input[number[i]];
-					GPIO_PTA_GPIO =index_7LED[i];
-					delay1(50);
-				}
+		for(myi =0;myi<1500;myi++){
+			for(i=0;i<4;i++){
+				if((i==1&&input[i]==0)||(i==3&&input[i]==0))
+						continue;
+				GPIO_PTD_GPIO =number[input[i]];
+				GPIO_PTA_GPIO =index_7LED[i];
+				delay1(50);
 			}
-
-
 	}
 
-
-
-
-
-
-
-
+}
 	return 0;
 }
 
