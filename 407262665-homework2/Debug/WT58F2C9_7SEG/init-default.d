@@ -1,0 +1,4 @@
+WT58F2C9_7SEG/init-default.d: ../WT58F2C9_7SEG/init-default.c \
+ ../WT58F2C9_7SEG/WT58F2C9.h
+
+../WT58F2C9_7SEG/WT58F2C9.h:
