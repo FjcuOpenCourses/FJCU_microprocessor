@@ -351,7 +351,7 @@ int main()
 {
 	unsigned int myi,j,i;
 	unsigned int index_7LED[8] = {Digit_1, Digit_2, Digit_3, Digit_4, Digit_5, Digit_6, Digit_7, Digit_8};
-	unsigned int student[8] = {Number_0, Number_1, Number_2, Number_3, Number_4, Number_5, Number_6, Number_7};
+	unsigned int number[8] = {Number_0, Number_1, Number_2, Number_3, Number_4, Number_5, Number_6, Number_7};
 
 	OS_PowerOnDriverInitial();
 	DRV_Printf("====================================\r\n", 0);
@@ -375,24 +375,42 @@ int main()
 	GPIO_PTB_DIR = 0x0000;	//for GPIO
 	GPIO_PTB_CFG = 0xFFFF;	//for push pull
 
-	//long long int input[4],output[4],LED[8],input;
-	input=0x0000ffff;
-	while(1)
-	{
-
-		for (j=0; j<16; j++)
-		{
-			for (myi=0; myi<1000; ++myi)
-				for(i=0; i<=j; ++i)
-				{
-					GPIO_PTB_GPIO = input;
-					delay1(100);
-				}
-			input=(input&&0x00000001)<<32+input>>1;
-
+	 unsigned int input[4],LED[8],tmp,count,ans,origin;
+	 tmp = (GPIO_PTC_PADIN >> 2) & 0x0000000F;
+	 origin =tmp;
+	 ans =tmp;
+	while(1){
+		tmp = (GPIO_PTC_PADIN >> 2) & 0x0000000F;
+		count=0;
+		if(tmp!=origin){
+			ans=tmp;
+			origin = tmp;
+			count=0;
+			while(ans>0){
+				input[count]=tmp%10;
+				tmp/=10;
+				count++;
+			}
 		}
-		//tmp = (GPIO_PTC_PADIN >> 2) & 0x0000000F;
+
+			for(myi =0;myi<1500;myi++){
+				for(i=0;i<4;i++){
+					GPIO_PTD_GPIO =input[number[i]];
+					GPIO_PTA_GPIO =index_7LED[i];
+					delay1(50);
+				}
+			}
+
+
 	}
+
+
+
+
+
+
+
+
 	return 0;
 }
 
