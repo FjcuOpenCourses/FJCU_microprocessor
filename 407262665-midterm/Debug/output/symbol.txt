@@ -71,9 +71,9 @@
 000004a2 T DRV_IntToStr	/cygdrive/c/Users/CS2019/Desktop/microprocessor/407262665-midterm/Debug/../main.c:217
 00000668 T DRV_Printf	/cygdrive/c/Users/CS2019/Desktop/microprocessor/407262665-midterm/Debug/../main.c:303
 0000083c T main	/cygdrive/c/Users/CS2019/Desktop/microprocessor/407262665-midterm/Debug/../main.c:350
-00000a70 T memcpy
-00000a84 T memset
-00000bb8 A __data_lmastart
+00000b74 T memcpy
+00000b88 T memset
+00000cc0 A __data_lmastart
 00100200 B __bss_start
 00100200 R __data_start
 00100200 B _edata
