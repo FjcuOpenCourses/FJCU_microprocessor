@@ -403,9 +403,7 @@ int main()
 				ans1/=10;
 				count++;
 			}
-
 			count=2;
-
 			while(ans2>0){
 				input[count]=ans2%10;
 				ans2/=10;
@@ -413,15 +411,15 @@ int main()
 			}
 
 			led=0x0000;
-			for(i=7;i>=0&&i<8;--i){
+			for(i=0;i<8;++i){
 				if(state&&0x0001){
-					led=led&&(~(0x0001>>i));
-					led=led||(0x0001>>(i+8));
+					led=led|(~(0x0001<<i));
+					led=led||(0x0001<<(i+8));
 
 				}
 				else{
-					led=led&&(~(0x0001>>(i+8)));
-					led=led||(0x0001>>i);
+					led=led|(~(0x0001<<(i+8)));
+					led=led||(0x0001<<i);
 				}
 				state>>=1;
 			}
