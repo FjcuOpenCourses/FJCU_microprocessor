@@ -351,7 +351,7 @@ int main()
 {
 	unsigned int myi,j,i;
 	unsigned int index_7LED[8] = {Digit_1, Digit_2, Digit_3, Digit_4, Digit_5, Digit_6, Digit_7, Digit_8};
-	unsigned int number[9] = {Number_0, Number_1, Number_2, Number_3, Number_4, Number_5, Number_6, Number_7,Number_8};
+	unsigned int number[11] = {Number_0, Number_1, Number_2, Number_3, Number_4, Number_5, Number_6, Number_7,Number_8,Number_9,0x0000};
 
 	OS_PowerOnDriverInitial();
 	DRV_Printf("====================================\r\n", 0);
@@ -361,11 +361,11 @@ int main()
 	// Setting for 7LED select
 	GPIO_PTA_DIR = 0x0000;
 	GPIO_PTA_CFG = 0x0000;
-	GPIO_PTA_GPIO = 0x0000;
+	//GPIO_PTA_GPIO = 0x0000;
 	// Setting for 7LED number
 	GPIO_PTD_DIR = 0x0000;
 	GPIO_PTD_CFG = 0x0000;
-	GPIO_PTD_GPIO = 0xFFFF;
+	//GPIO_PTD_GPIO = 0xFFFF;
 
 	GPIO_PTC_FS = 0x0000;
 	GPIO_PTC_PADINSEL = 0x0000;
@@ -376,69 +376,92 @@ int main()
 	GPIO_PTB_CFG = 0xFFFF;	//for push pull
 
 	 unsigned int tmp,count,ans1,ans2,origin,opt,m1, m2, t1, state,number1,number2;
-;
 	 unsigned int input[4]={0,0,0,0};
-	 unsigned int output[4]={0,0x0000,0x0000,0x0000};
+	 unsigned int output[4]={0,10,10,10};
 	 unsigned int set=1;
 	 int led=0xff00;
 	 origin =-1;
-	while(1){
-	 tmp = (GPIO_PTC_PADIN >> 2) & 0x000000FF;
+	 while(1){
+		 tmp = (GPIO_PTC_PADIN >> 2) & 0x000000FF;
 		count=0;
 		if(tmp!=origin){
 
 			ans1=tmp&0x000f;
 			ans2=(tmp&0x0f0)>>4;
 			origin = tmp;
-			state = tmp;
-			t1 = tmp;
+			state=tmp;
 			count=0;
 
 			for(i=0;i<4;i++){
 				input[i]=0;
-				output[i]=0x0000;
+				output[i]=10;
 			}
-
+			output[0]=0;
 
 			while(ans1>0){
 				input[count]=ans1%10;
 				ans1/=10;
 				count++;
 			}
+
 			count=2;
+
 			while(ans2>0){
 				input[count]=ans2%10;
 				ans2/=10;
 				count++;
 			}
+
+			led=0x0000;
+			for(i=7;i>=0&&i<8;--i){
+				if(state&&0x0001){
+					led=led&&(~(0x0001>>i));
+					led=led||(0x0001>>(i+8));
+
+				}
+				else{
+					led=led&&(~(0x0001>>(i+8)));
+					led=led||(0x0001>>i);
+				}
+				state>>=1;
+			}
+			for(i = 0; i < 16; i++)
+				{
+					unsigned int cut = led & 0x8000;
+					led <<= 1;
+					cut >>= 15;
+					led |= cut;
+					GPIO_PTB_GPIO = led;
+					delay1(100000);
+				}
 			 opt =(input[3]*10+input[2])*(input[1]*10+input[0])*abs((input[3]*10+input[2])-(input[1]*10+input[0]));
-			 set=0;
 
-			 while(opt>0){
-				 output[set]=opt%10;
-				 opt/=10;
-				 set++;
+			 if(opt>0){
+				 set=0;
+				 while(opt>0){
+					 output[set]=opt%10;
+					 opt/=10;
+					 set++;
+				 }
 			 }
-//			 m1 = t1^0x00ff;
-//			 		unsigned int rev1 = 0, rev2 = 0;
-//			 		for(i = 0; i < 8; i++)
-//			 		{
-//			 			rev1 <<= 1;
-//			 			rev2 <<= 1;
-//			 			if(t1 & 0x1)rev1 |= 0x1;
-//			 			if(m1 & 0x1)rev2 |= 0x1;
-//			 			t1 >>= 1;
-//			 			m1 >>= 1;
-//			 		}
-//			for(q = 0; q < 16; q++){
-//					unsigned int cut = rot & 0x8000;
-//					rot <<= 1;
-//					cut >>= 15;
-//					rot |= cut;
-//					GPIO_PTB_GPIO = rot;
-//					delay1(100000);
-//			}
 
+			for(j=0; j<4; j++){
+				for(myi=0; myi<1000; ++myi){
+					for(i=0; i<=j; ++i){
+						GPIO_PTD_GPIO = number[output[(j-i)]];
+						GPIO_PTA_GPIO = index_7LED[7-i];
+						delay1(50);
+					}
+					for(i=0; i<4; ++i){
+						if((i==1&&input[i]==0)||(i==3&&input[i]==0))
+								continue;
+						GPIO_PTD_GPIO =number[input[i]];
+						GPIO_PTA_GPIO =index_7LED[i];
+						delay1(50);
+					}
+				}
+
+		    }
 		}
 		for(i=0;i<16;i++)
 		GPIO_PTB_GPIO =led;
