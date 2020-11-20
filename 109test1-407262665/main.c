@@ -388,21 +388,11 @@ int main()
 		count=0;
 		if(tmp!=origin){
 
-			ans1=tmp&0x000f;
-			ans2=(tmp&0x0f0)>>4;
-
-	 tmp = (GPIO_PTC_PADIN >> 2) & 0x0000000F;
 	 origin =tmp;
 	 unsigned ans1 =tmp;
 	 unsigned ans2 =tmp;
-
-	while(1){
-	 tmp = (GPIO_PTC_PADIN >> 2) & 0x0000000F;
-		count=0;
-		if(tmp!=origin){
-
-			ans1=tmp;
-			ans2=tmp;
+	 ans1=tmp&0x000f;
+	 ans2=(tmp&0x0f0)>>4;
 			origin = tmp;
 			state=tmp;
 			count=0;

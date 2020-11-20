@@ -37,48 +37,48 @@
 0000018a T _nds32_i_ps_nn	/home/sqa/build-ast211/build-2015-08-21/source-packages/gcc-4.9.2-bsp-v4_0_2-branch/libgcc/config/nds32/isr-library/intr_isr.S:116
 000001a0 T _nds32_reset	/home/sqa/build-ast211/build-2015-08-21/source-packages/gcc-4.9.2-bsp-v4_0_2-branch/libgcc/config/nds32/isr-library/reset.S:36
 000001a0 T _start	/home/sqa/build-ast211/build-2015-08-21/source-packages/gcc-4.9.2-bsp-v4_0_2-branch/libgcc/config/nds32/isr-library/reset.S:36
-00000220 t Default_Handler	/cygdrive/c/Users/CS2019/Desktop/microprocessor/407262665-midterm/Debug/../init-default.c:17
-00000220 W HW2_ISR	/cygdrive/c/Users/CS2019/Desktop/microprocessor/407262665-midterm/Debug/../init-default.c:19
-00000220 W HW3_ISR	/cygdrive/c/Users/CS2019/Desktop/microprocessor/407262665-midterm/Debug/../init-default.c:19
-00000220 W HW4_ISR	/cygdrive/c/Users/CS2019/Desktop/microprocessor/407262665-midterm/Debug/../init-default.c:19
-00000220 W HW5_ISR	/cygdrive/c/Users/CS2019/Desktop/microprocessor/407262665-midterm/Debug/../init-default.c:19
-00000220 W error_exception_handler	/cygdrive/c/Users/CS2019/Desktop/microprocessor/407262665-midterm/Debug/../init-default.c:19
-00000220 W tlb_exception_handler	/cygdrive/c/Users/CS2019/Desktop/microprocessor/407262665-midterm/Debug/../init-default.c:19
-00000222 T __null_function	/cygdrive/c/Users/CS2019/Desktop/microprocessor/407262665-midterm/Debug/../init-default.c:22
-00000224 T __c_init	/cygdrive/c/Users/CS2019/Desktop/microprocessor/407262665-midterm/Debug/../init-default.c:26
-0000025c T __cpu_init	/cygdrive/c/Users/CS2019/Desktop/microprocessor/407262665-midterm/Debug/../init-default.c:49
-0000028e T _nds32_init_mem	/cygdrive/c/Users/CS2019/Desktop/microprocessor/407262665-midterm/Debug/../init-soc.c:19
-0000029e T __soc_init	/cygdrive/c/Users/CS2019/Desktop/microprocessor/407262665-midterm/Debug/../init-soc.c:26
-000002a0 T nmi_handler	/cygdrive/c/Users/CS2019/Desktop/microprocessor/407262665-midterm/Debug/../interrupt-c-ext.c:5
-000002a8 T GIE_ENABLE	/cygdrive/c/Users/CS2019/Desktop/microprocessor/407262665-midterm/Debug/../interrupt-c-ext.c:9
-000002ae T GIE_DISABLE	/cygdrive/c/Users/CS2019/Desktop/microprocessor/407262665-midterm/Debug/../interrupt-c-ext.c:14
-000002b8 T gen_swi	/cygdrive/c/Users/CS2019/Desktop/microprocessor/407262665-midterm/Debug/../interrupt-c-ext.c:21
-000002d8 T initIntr_standby	/cygdrive/c/Users/CS2019/Desktop/microprocessor/407262665-midterm/Debug/../interrupt-c-ext.c:31
-000002e0 T clear_swi	/cygdrive/c/Users/CS2019/Desktop/microprocessor/407262665-midterm/Debug/../interrupt-c-ext.c:40
-000002f4 T reset_handler	/cygdrive/c/Users/CS2019/Desktop/microprocessor/407262665-midterm/Debug/../interrupt-c-ext.c:59
-00000312 T syscall_handler	/cygdrive/c/Users/CS2019/Desktop/microprocessor/407262665-midterm/Debug/../interrupt-c-ext.c:71
-0000031c T HW0_ISR	/cygdrive/c/Users/CS2019/Desktop/microprocessor/407262665-midterm/Debug/../interrupt-c-ext.c:85
-0000031e T HW1_ISR	/cygdrive/c/Users/CS2019/Desktop/microprocessor/407262665-midterm/Debug/../interrupt-c-ext.c:94
-00000328 T SW0_ISR	/cygdrive/c/Users/CS2019/Desktop/microprocessor/407262665-midterm/Debug/../interrupt-c-ext.c:102
-00000340 T delay1	/cygdrive/c/Users/CS2019/Desktop/microprocessor/407262665-midterm/Debug/../main.c:6
-0000035c T DRV_EnableHWInt	/cygdrive/c/Users/CS2019/Desktop/microprocessor/407262665-midterm/Debug/../main.c:32
-00000376 T DRV_BlockIntDisable	/cygdrive/c/Users/CS2019/Desktop/microprocessor/407262665-midterm/Debug/../main.c:42
-000003c0 T DRV_IntInitial	/cygdrive/c/Users/CS2019/Desktop/microprocessor/407262665-midterm/Debug/../main.c:53
-000003d6 T DRV_SysXtal	/cygdrive/c/Users/CS2019/Desktop/microprocessor/407262665-midterm/Debug/../main.c:68
-000003fa T OS_PowerOnDriverInitial	/cygdrive/c/Users/CS2019/Desktop/microprocessor/407262665-midterm/Debug/../main.c:94
-00000412 T DRV_PutChar	/cygdrive/c/Users/CS2019/Desktop/microprocessor/407262665-midterm/Debug/../main.c:180
-00000470 T DRV_PutStr	/cygdrive/c/Users/CS2019/Desktop/microprocessor/407262665-midterm/Debug/../main.c:202
-000004a2 T DRV_IntToStr	/cygdrive/c/Users/CS2019/Desktop/microprocessor/407262665-midterm/Debug/../main.c:217
-00000668 T DRV_Printf	/cygdrive/c/Users/CS2019/Desktop/microprocessor/407262665-midterm/Debug/../main.c:303
-0000083c T main	/cygdrive/c/Users/CS2019/Desktop/microprocessor/407262665-midterm/Debug/../main.c:350
-00000ce0 T memcpy
-00000cf4 T memset
-00000e44 A __data_lmastart
+00000220 t Default_Handler	/cygdrive/c/Users/CS2019/Desktop/microprocessor/109test1-407262665/Debug/../init-default.c:17
+00000220 W HW2_ISR	/cygdrive/c/Users/CS2019/Desktop/microprocessor/109test1-407262665/Debug/../init-default.c:19
+00000220 W HW3_ISR	/cygdrive/c/Users/CS2019/Desktop/microprocessor/109test1-407262665/Debug/../init-default.c:19
+00000220 W HW4_ISR	/cygdrive/c/Users/CS2019/Desktop/microprocessor/109test1-407262665/Debug/../init-default.c:19
+00000220 W HW5_ISR	/cygdrive/c/Users/CS2019/Desktop/microprocessor/109test1-407262665/Debug/../init-default.c:19
+00000220 W error_exception_handler	/cygdrive/c/Users/CS2019/Desktop/microprocessor/109test1-407262665/Debug/../init-default.c:19
+00000220 W tlb_exception_handler	/cygdrive/c/Users/CS2019/Desktop/microprocessor/109test1-407262665/Debug/../init-default.c:19
+00000222 T __null_function	/cygdrive/c/Users/CS2019/Desktop/microprocessor/109test1-407262665/Debug/../init-default.c:22
+00000224 T __c_init	/cygdrive/c/Users/CS2019/Desktop/microprocessor/109test1-407262665/Debug/../init-default.c:26
+0000025c T __cpu_init	/cygdrive/c/Users/CS2019/Desktop/microprocessor/109test1-407262665/Debug/../init-default.c:49
+0000028e T _nds32_init_mem	/cygdrive/c/Users/CS2019/Desktop/microprocessor/109test1-407262665/Debug/../init-soc.c:19
+0000029e T __soc_init	/cygdrive/c/Users/CS2019/Desktop/microprocessor/109test1-407262665/Debug/../init-soc.c:26
+000002a0 T nmi_handler	/cygdrive/c/Users/CS2019/Desktop/microprocessor/109test1-407262665/Debug/../interrupt-c-ext.c:5
+000002a8 T GIE_ENABLE	/cygdrive/c/Users/CS2019/Desktop/microprocessor/109test1-407262665/Debug/../interrupt-c-ext.c:9
+000002ae T GIE_DISABLE	/cygdrive/c/Users/CS2019/Desktop/microprocessor/109test1-407262665/Debug/../interrupt-c-ext.c:14
+000002b8 T gen_swi	/cygdrive/c/Users/CS2019/Desktop/microprocessor/109test1-407262665/Debug/../interrupt-c-ext.c:21
+000002d8 T initIntr_standby	/cygdrive/c/Users/CS2019/Desktop/microprocessor/109test1-407262665/Debug/../interrupt-c-ext.c:31
+000002e0 T clear_swi	/cygdrive/c/Users/CS2019/Desktop/microprocessor/109test1-407262665/Debug/../interrupt-c-ext.c:40
+000002f4 T reset_handler	/cygdrive/c/Users/CS2019/Desktop/microprocessor/109test1-407262665/Debug/../interrupt-c-ext.c:59
+00000312 T syscall_handler	/cygdrive/c/Users/CS2019/Desktop/microprocessor/109test1-407262665/Debug/../interrupt-c-ext.c:71
+0000031c T HW0_ISR	/cygdrive/c/Users/CS2019/Desktop/microprocessor/109test1-407262665/Debug/../interrupt-c-ext.c:85
+0000031e T HW1_ISR	/cygdrive/c/Users/CS2019/Desktop/microprocessor/109test1-407262665/Debug/../interrupt-c-ext.c:94
+00000328 T SW0_ISR	/cygdrive/c/Users/CS2019/Desktop/microprocessor/109test1-407262665/Debug/../interrupt-c-ext.c:102
+00000340 T delay1	/cygdrive/c/Users/CS2019/Desktop/microprocessor/109test1-407262665/Debug/../main.c:6
+0000035c T DRV_EnableHWInt	/cygdrive/c/Users/CS2019/Desktop/microprocessor/109test1-407262665/Debug/../main.c:32
+00000376 T DRV_BlockIntDisable	/cygdrive/c/Users/CS2019/Desktop/microprocessor/109test1-407262665/Debug/../main.c:42
+000003c0 T DRV_IntInitial	/cygdrive/c/Users/CS2019/Desktop/microprocessor/109test1-407262665/Debug/../main.c:53
+000003d6 T DRV_SysXtal	/cygdrive/c/Users/CS2019/Desktop/microprocessor/109test1-407262665/Debug/../main.c:68
+000003fa T OS_PowerOnDriverInitial	/cygdrive/c/Users/CS2019/Desktop/microprocessor/109test1-407262665/Debug/../main.c:94
+00000412 T DRV_PutChar	/cygdrive/c/Users/CS2019/Desktop/microprocessor/109test1-407262665/Debug/../main.c:180
+00000470 T DRV_PutStr	/cygdrive/c/Users/CS2019/Desktop/microprocessor/109test1-407262665/Debug/../main.c:202
+000004a2 T DRV_IntToStr	/cygdrive/c/Users/CS2019/Desktop/microprocessor/109test1-407262665/Debug/../main.c:217
+00000668 T DRV_Printf	/cygdrive/c/Users/CS2019/Desktop/microprocessor/109test1-407262665/Debug/../main.c:303
+0000083c T main	/cygdrive/c/Users/CS2019/Desktop/microprocessor/109test1-407262665/Debug/../main.c:350
+00000cec T memcpy
+00000d00 T memset
+00000e50 A __data_lmastart
 00100200 B __bss_start
 00100200 R __data_start
 00100200 B _edata
 00100200 B _lmaend
-00100200 B u8TxdBuf	/cygdrive/c/Users/CS2019/Desktop/microprocessor/407262665-midterm/Debug/../main.c:178
+00100200 B u8TxdBuf	/cygdrive/c/Users/CS2019/Desktop/microprocessor/109test1-407262665/Debug/../main.c:178
 00100208 W _FP_BASE_
 00100208 W _SDA_BASE_
 00100218 B _end

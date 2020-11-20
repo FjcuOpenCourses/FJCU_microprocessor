@@ -7,8 +7,8 @@ start address 0x000001a0
 
 Program Header:
     LOAD off    0x00001000 vaddr 0x00000000 paddr 0x00000000 align 2**12
-         filesz 0x00000e44 memsz 0x00000e44 flags r-x
-    LOAD off    0x00002200 vaddr 0x00100200 paddr 0x00000e44 align 2**12
+         filesz 0x00000e50 memsz 0x00000e50 flags r-x
+    LOAD off    0x00002200 vaddr 0x00100200 paddr 0x00000e50 align 2**12
          filesz 0x00000000 memsz 0x00000018 flags rw-
 private flags = 40010042: n1 instructions
 
@@ -24,27 +24,27 @@ Idx Name          Size      VMA       LMA       File off  Algn
                   CONTENTS, ALLOC, LOAD, READONLY, DATA
   4 .nds32_isr    000000d8  00000148  00000148  00001148  2**1
                   CONTENTS, ALLOC, LOAD, READONLY, CODE
-  5 .text         00000ae4  00000220  00000220  00001220  2**2
+  5 .text         00000af0  00000220  00000220  00001220  2**2
                   CONTENTS, ALLOC, LOAD, READONLY, CODE
-  6 .rodata       00000140  00000d04  00000d04  00001d04  2**2
+  6 .rodata       00000140  00000d10  00000d10  00001d10  2**2
                   CONTENTS, ALLOC, LOAD, READONLY, DATA
-  7 .bss          00000018  00100200  00000e44  00002200  2**2
+  7 .bss          00000018  00100200  00000e50  00002200  2**2
                   ALLOC
-  8 .comment      0000002f  00000000  00000000  00001e44  2**0
+  8 .comment      0000002f  00000000  00000000  00001e50  2**0
                   CONTENTS, READONLY
-  9 .debug_aranges 00000240  00000000  00000000  00001e78  2**3
+  9 .debug_aranges 00000240  00000000  00000000  00001e80  2**3
                   CONTENTS, READONLY, DEBUGGING
- 10 .debug_info   000027f1  00000000  00000000  000020b8  2**0
+ 10 .debug_info   00002809  00000000  00000000  000020c0  2**0
                   CONTENTS, READONLY, DEBUGGING
- 11 .debug_abbrev 000005a8  00000000  00000000  000048a9  2**0
+ 11 .debug_abbrev 000005a8  00000000  00000000  000048c9  2**0
                   CONTENTS, READONLY, DEBUGGING
- 12 .debug_line   0000165b  00000000  00000000  00004e51  2**0
+ 12 .debug_line   0000166d  00000000  00000000  00004e71  2**0
                   CONTENTS, READONLY, DEBUGGING
- 13 .debug_frame  000002d8  00000000  00000000  000064ac  2**2
+ 13 .debug_frame  000002d8  00000000  00000000  000064e0  2**2
                   CONTENTS, READONLY, DEBUGGING
- 14 .debug_str    0000bef1  00000000  00000000  00006784  2**0
+ 14 .debug_str    0000bef2  00000000  00000000  000067b8  2**0
                   CONTENTS, READONLY, DEBUGGING
- 15 .debug_macro  00001cd0  00000000  00000000  00012675  2**0
+ 15 .debug_macro  00001cd0  00000000  00000000  000126aa  2**0
                   CONTENTS, READONLY, DEBUGGING
 SYMBOL TABLE:
 00000000 l    d  .nds32_vector	00000000 .nds32_vector
@@ -53,7 +53,7 @@ SYMBOL TABLE:
 00000108 l    d  .nds32_jmptbl	00000000 .nds32_jmptbl
 00000148 l    d  .nds32_isr	00000000 .nds32_isr
 00000220 l    d  .text	00000000 .text
-00000d04 l    d  .rodata	00000000 .rodata
+00000d10 l    d  .rodata	00000000 .rodata
 00100200 l    d  .bss	00000000 .bss
 00000000 l    d  .comment	00000000 .comment
 00000000 l    d  .debug_aranges	00000000 .debug_aranges
@@ -100,7 +100,7 @@ SYMBOL TABLE:
 000002e0 g     F .text	00000014 clear_swi
 00000148 g     F .nds32_isr	00000042 _nds32_e_sa_nr
 00000118  w    O .nds32_jmptbl	00000004 _nds32_jmptbl_04
-00000ce0 g     F .text	00000012 memcpy
+00000cec g     F .text	00000012 memcpy
 000002a8 g     F .text	00000006 GIE_ENABLE
 000002b8 g     F .text	00000020 gen_swi
 0000025c g     F .text	00000032 __cpu_init
@@ -132,8 +132,8 @@ SYMBOL TABLE:
 00000100 g     O .nds32_nmih	00000004 _nds32_nmih
 00100200 g       .bss	00000000 __bss_start
 00000108 g     O .nds32_jmptbl	00000004 _nds32_jmptbl_00
-00000cf4 g     F .text	0000000e memset
-0000083c g     F .text	000004a4 main
+00000d00 g     F .text	0000000e memset
+0000083c g     F .text	000004b0 main
 000003c0 g     F .text	00000016 DRV_IntInitial
 00000104 g     O .nds32_wrh	00000004 _nds32_wrh
 00000090 g     F .nds32_vector	00000010 _nds32_vector_09
@@ -148,7 +148,7 @@ SYMBOL TABLE:
 00000328 g     F .text	00000016 SW0_ISR
 00000134  w    O .nds32_jmptbl	00000004 _nds32_jmptbl_11
 00000668 g     F .text	000001d4 DRV_Printf
-00000e44 g       *ABS*	00000000 __data_lmastart
+00000e50 g       *ABS*	00000000 __data_lmastart
 000000f0 g     F .nds32_vector	00000010 _nds32_vector_15
 00000470 g     F .text	00000032 DRV_PutStr
 00100200 g       .bss	00000000 _edata
@@ -355,8 +355,8 @@ Disassembly of section .text:
  230:	f0 81       	swi37.sp $r0,[+#0x4]
  232:	f2 01       	lwi37.sp $r2,[+#0x4]
  234:	3e 0f ff f8 	addi.gp $r0,#-8
- 238:	44 10 0e 44 	movi $r1,#0xe44
- 23c:	49 00 05 52 	jal ce0 <memcpy>
+ 238:	44 10 0e 50 	movi $r1,#0xe50
+ 23c:	49 00 05 58 	jal cec <memcpy>
  240:	3e 18 00 10 	addi.gp $r1,#0x10
  244:	3e 0f ff f8 	addi.gp $r0,#-8
  248:	9a 08       	sub333 $r0,$r1,$r0
@@ -365,7 +365,7 @@ Disassembly of section .text:
  24e:	3e 0f ff f8 	addi.gp $r0,#-8
  252:	80 41       	mov55 $r2,$r1
  254:	84 20       	movi55 $r1,#0x0
- 256:	49 00 05 4f 	jal cf4 <memset>
+ 256:	49 00 05 55 	jal d00 <memset>
  25a:	fc 81       	pop25 $r6,#8    ! {$r6, $fp, $gp, $lp}
 
 0000025c <__cpu_init>:
@@ -914,7 +914,7 @@ Disassembly of section .text:
  840:	ef 58       	addi10.sp #-168
  842:	b0 13       	addri36.sp $r0,#0x4c
  844:	80 c0       	mov55 $r6,$r0
- 846:	44 00 0d e8 	movi $r0,#0xde8
+ 846:	44 00 0d f4 	movi $r0,#0xdf4
  84a:	3a 20 14 04 	lmw.bim $r2,[$r0],$r5,#0x0    ! {$r2~$r5}
  84e:	80 20       	mov55 $r1,$r0
  850:	80 06       	mov55 $r0,$r6
@@ -923,7 +923,7 @@ Disassembly of section .text:
  85a:	3a 20 14 20 	smw.bi $r2,[$r0],$r5,#0x0    ! {$r2~$r5}
  85e:	b0 08       	addri36.sp $r0,#0x20
  860:	80 20       	mov55 $r1,$r0
- 862:	44 00 0e 08 	movi $r0,#0xe08
+ 862:	44 00 0e 14 	movi $r0,#0xe14
  866:	3a 20 14 04 	lmw.bim $r2,[$r0],$r5,#0x0    ! {$r2~$r5}
  86a:	3a 20 94 24 	smw.bim $r2,[$r1],$r5,#0x0    ! {$r2~$r5}
  86e:	80 c1       	mov55 $r6,$r1
@@ -934,16 +934,16 @@ Disassembly of section .text:
  87c:	3a 20 90 00 	lmw.bi $r2,[$r1],$r4,#0x0    ! {$r2~$r4}
  880:	3a 20 10 20 	smw.bi $r2,[$r0],$r4,#0x0    ! {$r2~$r4}
  884:	49 ff fd bb 	jal 3fa <OS_PowerOnDriverInitial>
- 888:	44 00 0d 84 	movi $r0,#0xd84
+ 888:	44 00 0d 90 	movi $r0,#0xd90
  88c:	84 20       	movi55 $r1,#0x0
  88e:	49 ff fe ed 	jal 668 <DRV_Printf>
- 892:	44 00 0d ac 	movi $r0,#0xdac
+ 892:	44 00 0d b8 	movi $r0,#0xdb8
  896:	84 20       	movi55 $r1,#0x0
  898:	49 ff fe e8 	jal 668 <DRV_Printf>
- 89c:	44 00 0d 84 	movi $r0,#0xd84
+ 89c:	44 00 0d 90 	movi $r0,#0xd90
  8a0:	84 20       	movi55 $r1,#0x0
  8a2:	49 ff fe e3 	jal 668 <DRV_Printf>
- 8a6:	44 00 0d d4 	movi $r0,#0xdd4
+ 8a6:	44 00 0d e0 	movi $r0,#0xde0
  8aa:	84 20       	movi55 $r1,#0x0
  8ac:	49 ff fe de 	jal 668 <DRV_Printf>
  8b0:	46 00 01 f6 	sethi $r0,#0x1f6
@@ -989,18 +989,18 @@ Disassembly of section .text:
  92c:	b0 04       	addri36.sp $r0,#0x10
  92e:	fa 40       	movpi45 $r2,#0x10
  930:	84 20       	movi55 $r1,#0x0
- 932:	49 00 01 e1 	jal cf4 <memset>
+ 932:	49 00 01 e7 	jal d00 <memset>
  936:	80 1f       	mov55 $r0,$sp
  938:	80 20       	mov55 $r1,$r0
- 93a:	44 00 0e 34 	movi $r0,#0xe34
+ 93a:	44 00 0e 40 	movi $r0,#0xe40
  93e:	3a 20 14 00 	lmw.bi $r2,[$r0],$r5,#0x0    ! {$r2~$r5}
  942:	3a 20 94 20 	smw.bi $r2,[$r1],$r5,#0x0    ! {$r2~$r5}
  946:	84 01       	movi55 $r0,#0x1
- 948:	f0 a0       	swi37.sp $r0,[+#0x80]
+ 948:	f0 a2       	swi37.sp $r0,[+#0x88]
  94a:	44 00 ff 00 	movi $r0,#0xff00
- 94e:	f0 9f       	swi37.sp $r0,[+#0x7c]
+ 94e:	f0 a1       	swi37.sp $r0,[+#0x84]
  950:	84 1f       	movi55 $r0,#-1
- 952:	f0 a3       	swi37.sp $r0,[+#0x8c]
+ 952:	f0 a5       	swi37.sp $r0,[+#0x94]
  954:	46 00 01 f6 	sethi $r0,#0x1f6
  958:	50 00 08 44 	addi $r0,$r0,#0x844
  95c:	b4 00       	lwi450 $r0,[$r0]
@@ -1010,391 +1010,397 @@ Disassembly of section .text:
  964:	84 00       	movi55 $r0,#0x0
  966:	f0 a6       	swi37.sp $r0,[+#0x98]
  968:	f1 1c       	lwi37.sp $r1,[+#0x70]
- 96a:	f0 23       	lwi37.sp $r0,[+#0x8c]
- 96c:	4c 10 01 49 	beq $r1,$r0,bfe <main+0x3c2>
+ 96a:	f0 25       	lwi37.sp $r0,[+#0x94]
+ 96c:	4c 10 01 4f 	beq $r1,$r0,c0a <main+0x3ce>
  970:	f0 1c       	lwi37.sp $r0,[+#0x70]
- 972:	96 1f       	fexti33 $r0,#0x3
- 974:	f0 a5       	swi37.sp $r0,[+#0x94]
- 976:	f0 1c       	lwi37.sp $r0,[+#0x70]
- 978:	54 00 00 f0 	andi $r0,$r0,#0xf0
- 97c:	92 04       	srli45 $r0,#0x4
- 97e:	f0 a4       	swi37.sp $r0,[+#0x90]
- 980:	f0 1c       	lwi37.sp $r0,[+#0x70]
- 982:	f0 a3       	swi37.sp $r0,[+#0x8c]
- 984:	f0 1c       	lwi37.sp $r0,[+#0x70]
- 986:	f0 a1       	swi37.sp $r0,[+#0x84]
- 988:	84 00       	movi55 $r0,#0x0
- 98a:	f0 a6       	swi37.sp $r0,[+#0x98]
- 98c:	84 00       	movi55 $r0,#0x0
- 98e:	f0 a7       	swi37.sp $r0,[+#0x9c]
- 990:	d5 0e       	j8 9ac <main+0x170>
- 992:	b0 04       	addri36.sp $r0,#0x10
- 994:	f1 27       	lwi37.sp $r1,[+#0x9c]
- 996:	84 40       	movi55 $r2,#0x0
- 998:	38 20 06 0a 	sw $r2,[$r0+($r1<<#0x2)]
- 99c:	80 1f       	mov55 $r0,$sp
- 99e:	f1 27       	lwi37.sp $r1,[+#0x9c]
- 9a0:	84 4a       	movi55 $r2,#0xa
- 9a2:	38 20 06 0a 	sw $r2,[$r0+($r1<<#0x2)]
- 9a6:	f0 27       	lwi37.sp $r0,[+#0x9c]
- 9a8:	8c 01       	addi45 $r0,#0x1
- 9aa:	f0 a7       	swi37.sp $r0,[+#0x9c]
- 9ac:	f0 27       	lwi37.sp $r0,[+#0x9c]
- 9ae:	e6 04       	slti45 $r0,#0x4
- 9b0:	e9 f1       	bnezs8 992 <main+0x156>
- 9b2:	80 1f       	mov55 $r0,$sp
- 9b4:	84 20       	movi55 $r1,#0x0
- 9b6:	b6 20       	swi450 $r1,[$r0]
- 9b8:	d5 12       	j8 9dc <main+0x1a0>
- 9ba:	f1 25       	lwi37.sp $r1,[+#0x94]
- 9bc:	84 0a       	movi55 $r0,#0xa
- 9be:	40 10 80 17 	divr $r1,$r0,$r1,$r0
- 9c2:	80 40       	mov55 $r2,$r0
- 9c4:	b0 04       	addri36.sp $r0,#0x10
- 9c6:	f1 26       	lwi37.sp $r1,[+#0x98]
- 9c8:	38 20 06 0a 	sw $r2,[$r0+($r1<<#0x2)]
- 9cc:	f1 25       	lwi37.sp $r1,[+#0x94]
- 9ce:	84 0a       	movi55 $r0,#0xa
- 9d0:	40 00 80 37 	divr $r0,$r1,$r1,$r0
- 9d4:	f0 a5       	swi37.sp $r0,[+#0x94]
- 9d6:	f0 26       	lwi37.sp $r0,[+#0x98]
- 9d8:	8c 01       	addi45 $r0,#0x1
- 9da:	f0 a6       	swi37.sp $r0,[+#0x98]
- 9dc:	f0 25       	lwi37.sp $r0,[+#0x94]
- 9de:	c8 ee       	bnez38 $r0,9ba <main+0x17e>
- 9e0:	84 02       	movi55 $r0,#0x2
- 9e2:	f0 a6       	swi37.sp $r0,[+#0x98]
- 9e4:	d5 12       	j8 a08 <main+0x1cc>
- 9e6:	f1 24       	lwi37.sp $r1,[+#0x90]
- 9e8:	84 0a       	movi55 $r0,#0xa
- 9ea:	40 10 80 17 	divr $r1,$r0,$r1,$r0
- 9ee:	80 40       	mov55 $r2,$r0
- 9f0:	b0 04       	addri36.sp $r0,#0x10
- 9f2:	f1 26       	lwi37.sp $r1,[+#0x98]
- 9f4:	38 20 06 0a 	sw $r2,[$r0+($r1<<#0x2)]
- 9f8:	f1 24       	lwi37.sp $r1,[+#0x90]
- 9fa:	84 0a       	movi55 $r0,#0xa
- 9fc:	40 00 80 37 	divr $r0,$r1,$r1,$r0
- a00:	f0 a4       	swi37.sp $r0,[+#0x90]
- a02:	f0 26       	lwi37.sp $r0,[+#0x98]
- a04:	8c 01       	addi45 $r0,#0x1
- a06:	f0 a6       	swi37.sp $r0,[+#0x98]
- a08:	f0 24       	lwi37.sp $r0,[+#0x90]
- a0a:	c8 ee       	bnez38 $r0,9e6 <main+0x1aa>
- a0c:	84 00       	movi55 $r0,#0x0
- a0e:	f0 9f       	swi37.sp $r0,[+#0x7c]
- a10:	84 00       	movi55 $r0,#0x0
- a12:	f0 9e       	swi37.sp $r0,[+#0x78]
- a14:	84 00       	movi55 $r0,#0x0
- a16:	f0 9d       	swi37.sp $r0,[+#0x74]
- a18:	84 07       	movi55 $r0,#0x7
- a1a:	f0 a7       	swi37.sp $r0,[+#0x9c]
- a1c:	d5 1b       	j8 a52 <main+0x216>
- a1e:	f0 21       	lwi37.sp $r0,[+#0x84]
- a20:	96 06       	bmski33 $r0,#0x0
- a22:	c0 0a       	beqz38 $r0,a36 <main+0x1fa>
- a24:	f0 1d       	lwi37.sp $r0,[+#0x74]
- a26:	94 01       	slli333 $r0,$r0,#0x1
- a28:	f0 9d       	swi37.sp $r0,[+#0x74]
- a2a:	f0 1e       	lwi37.sp $r0,[+#0x78]
- a2c:	94 01       	slli333 $r0,$r0,#0x1
- a2e:	58 00 00 01 	ori $r0,$r0,#0x1
- a32:	f0 9e       	swi37.sp $r0,[+#0x78]
- a34:	d5 09       	j8 a46 <main+0x20a>
+ 972:	f0 a5       	swi37.sp $r0,[+#0x94]
+ 974:	f0 1c       	lwi37.sp $r0,[+#0x70]
+ 976:	f0 a0       	swi37.sp $r0,[+#0x80]
+ 978:	f0 1c       	lwi37.sp $r0,[+#0x70]
+ 97a:	f0 9f       	swi37.sp $r0,[+#0x7c]
+ 97c:	f0 1c       	lwi37.sp $r0,[+#0x70]
+ 97e:	96 1f       	fexti33 $r0,#0x3
+ 980:	f0 a0       	swi37.sp $r0,[+#0x80]
+ 982:	f0 1c       	lwi37.sp $r0,[+#0x70]
+ 984:	54 00 00 f0 	andi $r0,$r0,#0xf0
+ 988:	92 04       	srli45 $r0,#0x4
+ 98a:	f0 9f       	swi37.sp $r0,[+#0x7c]
+ 98c:	f0 1c       	lwi37.sp $r0,[+#0x70]
+ 98e:	f0 a5       	swi37.sp $r0,[+#0x94]
+ 990:	f0 1c       	lwi37.sp $r0,[+#0x70]
+ 992:	f0 a3       	swi37.sp $r0,[+#0x8c]
+ 994:	84 00       	movi55 $r0,#0x0
+ 996:	f0 a6       	swi37.sp $r0,[+#0x98]
+ 998:	84 00       	movi55 $r0,#0x0
+ 99a:	f0 a7       	swi37.sp $r0,[+#0x9c]
+ 99c:	d5 0e       	j8 9b8 <main+0x17c>
+ 99e:	b0 04       	addri36.sp $r0,#0x10
+ 9a0:	f1 27       	lwi37.sp $r1,[+#0x9c]
+ 9a2:	84 40       	movi55 $r2,#0x0
+ 9a4:	38 20 06 0a 	sw $r2,[$r0+($r1<<#0x2)]
+ 9a8:	80 1f       	mov55 $r0,$sp
+ 9aa:	f1 27       	lwi37.sp $r1,[+#0x9c]
+ 9ac:	84 4a       	movi55 $r2,#0xa
+ 9ae:	38 20 06 0a 	sw $r2,[$r0+($r1<<#0x2)]
+ 9b2:	f0 27       	lwi37.sp $r0,[+#0x9c]
+ 9b4:	8c 01       	addi45 $r0,#0x1
+ 9b6:	f0 a7       	swi37.sp $r0,[+#0x9c]
+ 9b8:	f0 27       	lwi37.sp $r0,[+#0x9c]
+ 9ba:	e6 04       	slti45 $r0,#0x4
+ 9bc:	e9 f1       	bnezs8 99e <main+0x162>
+ 9be:	80 1f       	mov55 $r0,$sp
+ 9c0:	84 20       	movi55 $r1,#0x0
+ 9c2:	b6 20       	swi450 $r1,[$r0]
+ 9c4:	d5 12       	j8 9e8 <main+0x1ac>
+ 9c6:	f1 20       	lwi37.sp $r1,[+#0x80]
+ 9c8:	84 0a       	movi55 $r0,#0xa
+ 9ca:	40 10 80 17 	divr $r1,$r0,$r1,$r0
+ 9ce:	80 40       	mov55 $r2,$r0
+ 9d0:	b0 04       	addri36.sp $r0,#0x10
+ 9d2:	f1 26       	lwi37.sp $r1,[+#0x98]
+ 9d4:	38 20 06 0a 	sw $r2,[$r0+($r1<<#0x2)]
+ 9d8:	f1 20       	lwi37.sp $r1,[+#0x80]
+ 9da:	84 0a       	movi55 $r0,#0xa
+ 9dc:	40 00 80 37 	divr $r0,$r1,$r1,$r0
+ 9e0:	f0 a0       	swi37.sp $r0,[+#0x80]
+ 9e2:	f0 26       	lwi37.sp $r0,[+#0x98]
+ 9e4:	8c 01       	addi45 $r0,#0x1
+ 9e6:	f0 a6       	swi37.sp $r0,[+#0x98]
+ 9e8:	f0 20       	lwi37.sp $r0,[+#0x80]
+ 9ea:	c8 ee       	bnez38 $r0,9c6 <main+0x18a>
+ 9ec:	84 02       	movi55 $r0,#0x2
+ 9ee:	f0 a6       	swi37.sp $r0,[+#0x98]
+ 9f0:	d5 12       	j8 a14 <main+0x1d8>
+ 9f2:	f1 1f       	lwi37.sp $r1,[+#0x7c]
+ 9f4:	84 0a       	movi55 $r0,#0xa
+ 9f6:	40 10 80 17 	divr $r1,$r0,$r1,$r0
+ 9fa:	80 40       	mov55 $r2,$r0
+ 9fc:	b0 04       	addri36.sp $r0,#0x10
+ 9fe:	f1 26       	lwi37.sp $r1,[+#0x98]
+ a00:	38 20 06 0a 	sw $r2,[$r0+($r1<<#0x2)]
+ a04:	f1 1f       	lwi37.sp $r1,[+#0x7c]
+ a06:	84 0a       	movi55 $r0,#0xa
+ a08:	40 00 80 37 	divr $r0,$r1,$r1,$r0
+ a0c:	f0 9f       	swi37.sp $r0,[+#0x7c]
+ a0e:	f0 26       	lwi37.sp $r0,[+#0x98]
+ a10:	8c 01       	addi45 $r0,#0x1
+ a12:	f0 a6       	swi37.sp $r0,[+#0x98]
+ a14:	f0 1f       	lwi37.sp $r0,[+#0x7c]
+ a16:	c8 ee       	bnez38 $r0,9f2 <main+0x1b6>
+ a18:	84 00       	movi55 $r0,#0x0
+ a1a:	f0 a1       	swi37.sp $r0,[+#0x84]
+ a1c:	84 00       	movi55 $r0,#0x0
+ a1e:	f0 9e       	swi37.sp $r0,[+#0x78]
+ a20:	84 00       	movi55 $r0,#0x0
+ a22:	f0 9d       	swi37.sp $r0,[+#0x74]
+ a24:	84 07       	movi55 $r0,#0x7
+ a26:	f0 a7       	swi37.sp $r0,[+#0x9c]
+ a28:	d5 1b       	j8 a5e <main+0x222>
+ a2a:	f0 23       	lwi37.sp $r0,[+#0x8c]
+ a2c:	96 06       	bmski33 $r0,#0x0
+ a2e:	c0 0a       	beqz38 $r0,a42 <main+0x206>
+ a30:	f0 1d       	lwi37.sp $r0,[+#0x74]
+ a32:	94 01       	slli333 $r0,$r0,#0x1
+ a34:	f0 9d       	swi37.sp $r0,[+#0x74]
  a36:	f0 1e       	lwi37.sp $r0,[+#0x78]
  a38:	94 01       	slli333 $r0,$r0,#0x1
- a3a:	f0 9e       	swi37.sp $r0,[+#0x78]
- a3c:	f0 1d       	lwi37.sp $r0,[+#0x74]
- a3e:	94 01       	slli333 $r0,$r0,#0x1
- a40:	58 00 00 01 	ori $r0,$r0,#0x1
- a44:	f0 9d       	swi37.sp $r0,[+#0x74]
- a46:	f0 21       	lwi37.sp $r0,[+#0x84]
- a48:	92 01       	srli45 $r0,#0x1
- a4a:	f0 a1       	swi37.sp $r0,[+#0x84]
- a4c:	f0 27       	lwi37.sp $r0,[+#0x9c]
- a4e:	8e 01       	subi45 $r0,#0x1
- a50:	f0 a7       	swi37.sp $r0,[+#0x9c]
- a52:	f0 27       	lwi37.sp $r0,[+#0x9c]
- a54:	e6 08       	slti45 $r0,#0x8
- a56:	e9 e4       	bnezs8 a1e <main+0x1e2>
- a58:	f0 1d       	lwi37.sp $r0,[+#0x74]
- a5a:	40 10 20 08 	slli $r1,$r0,#0x8
- a5e:	f0 1e       	lwi37.sp $r0,[+#0x78]
- a60:	fe 0f       	or33 $r0,$r1
- a62:	f0 9f       	swi37.sp $r0,[+#0x7c]
- a64:	84 00       	movi55 $r0,#0x0
- a66:	f0 a7       	swi37.sp $r0,[+#0x9c]
- a68:	d5 1d       	j8 aa2 <main+0x266>
- a6a:	f1 1f       	lwi37.sp $r1,[+#0x7c]
- a6c:	44 00 80 00 	movi $r0,#0x8000
- a70:	fe 0e       	and33 $r0,$r1
- a72:	f0 9b       	swi37.sp $r0,[+#0x6c]
- a74:	f0 1f       	lwi37.sp $r0,[+#0x7c]
- a76:	94 01       	slli333 $r0,$r0,#0x1
- a78:	f0 9f       	swi37.sp $r0,[+#0x7c]
- a7a:	f0 1b       	lwi37.sp $r0,[+#0x6c]
- a7c:	92 0f       	srli45 $r0,#0xf
+ a3a:	58 00 00 01 	ori $r0,$r0,#0x1
+ a3e:	f0 9e       	swi37.sp $r0,[+#0x78]
+ a40:	d5 09       	j8 a52 <main+0x216>
+ a42:	f0 1e       	lwi37.sp $r0,[+#0x78]
+ a44:	94 01       	slli333 $r0,$r0,#0x1
+ a46:	f0 9e       	swi37.sp $r0,[+#0x78]
+ a48:	f0 1d       	lwi37.sp $r0,[+#0x74]
+ a4a:	94 01       	slli333 $r0,$r0,#0x1
+ a4c:	58 00 00 01 	ori $r0,$r0,#0x1
+ a50:	f0 9d       	swi37.sp $r0,[+#0x74]
+ a52:	f0 23       	lwi37.sp $r0,[+#0x8c]
+ a54:	92 01       	srli45 $r0,#0x1
+ a56:	f0 a3       	swi37.sp $r0,[+#0x8c]
+ a58:	f0 27       	lwi37.sp $r0,[+#0x9c]
+ a5a:	8e 01       	subi45 $r0,#0x1
+ a5c:	f0 a7       	swi37.sp $r0,[+#0x9c]
+ a5e:	f0 27       	lwi37.sp $r0,[+#0x9c]
+ a60:	e6 08       	slti45 $r0,#0x8
+ a62:	e9 e4       	bnezs8 a2a <main+0x1ee>
+ a64:	f0 1d       	lwi37.sp $r0,[+#0x74]
+ a66:	40 10 20 08 	slli $r1,$r0,#0x8
+ a6a:	f0 1e       	lwi37.sp $r0,[+#0x78]
+ a6c:	fe 0f       	or33 $r0,$r1
+ a6e:	f0 a1       	swi37.sp $r0,[+#0x84]
+ a70:	84 00       	movi55 $r0,#0x0
+ a72:	f0 a7       	swi37.sp $r0,[+#0x9c]
+ a74:	d5 1d       	j8 aae <main+0x272>
+ a76:	f1 21       	lwi37.sp $r1,[+#0x84]
+ a78:	44 00 80 00 	movi $r0,#0x8000
+ a7c:	fe 0e       	and33 $r0,$r1
  a7e:	f0 9b       	swi37.sp $r0,[+#0x6c]
- a80:	f1 1f       	lwi37.sp $r1,[+#0x7c]
- a82:	f0 1b       	lwi37.sp $r0,[+#0x6c]
- a84:	fe 0f       	or33 $r0,$r1
- a86:	f0 9f       	swi37.sp $r0,[+#0x7c]
- a88:	46 00 01 f6 	sethi $r0,#0x1f6
- a8c:	50 00 08 20 	addi $r0,$r0,#0x820
- a90:	f1 1f       	lwi37.sp $r1,[+#0x7c]
- a92:	b6 20       	swi450 $r1,[$r0]
- a94:	44 01 86 a0 	movi $r0,#0x186a0
- a98:	49 ff fc 54 	jal 340 <delay1>
- a9c:	f0 27       	lwi37.sp $r0,[+#0x9c]
- a9e:	8c 01       	addi45 $r0,#0x1
- aa0:	f0 a7       	swi37.sp $r0,[+#0x9c]
- aa2:	f0 27       	lwi37.sp $r0,[+#0x9c]
- aa4:	e6 10       	slti45 $r0,#0x10
- aa6:	e9 e2       	bnezs8 a6a <main+0x22e>
- aa8:	b0 04       	addri36.sp $r0,#0x10
- aaa:	a0 43       	lwi333 $r1,[$r0+#0xc]
- aac:	84 0a       	movi55 $r0,#0xa
- aae:	fe 44       	mul33 $r1,$r0
- ab0:	b0 04       	addri36.sp $r0,#0x10
- ab2:	a0 02       	lwi333 $r0,[$r0+#0x8]
- ab4:	88 20       	add45 $r1,$r0
- ab6:	b0 04       	addri36.sp $r0,#0x10
- ab8:	a0 81       	lwi333 $r2,[$r0+#0x4]
- aba:	84 0a       	movi55 $r0,#0xa
- abc:	fe 84       	mul33 $r2,$r0
- abe:	b0 04       	addri36.sp $r0,#0x10
- ac0:	b4 00       	lwi450 $r0,[$r0]
- ac2:	88 02       	add45 $r0,$r2
- ac4:	42 20 80 24 	mul $r2,$r1,$r0
- ac8:	b0 04       	addri36.sp $r0,#0x10
- aca:	a0 43       	lwi333 $r1,[$r0+#0xc]
- acc:	84 0a       	movi55 $r0,#0xa
- ace:	fe 44       	mul33 $r1,$r0
- ad0:	b0 04       	addri36.sp $r0,#0x10
- ad2:	a0 02       	lwi333 $r0,[$r0+#0x8]
- ad4:	88 20       	add45 $r1,$r0
- ad6:	b0 04       	addri36.sp $r0,#0x10
- ad8:	a0 c1       	lwi333 $r3,[$r0+#0x4]
- ada:	84 0a       	movi55 $r0,#0xa
- adc:	fe c4       	mul33 $r3,$r0
- ade:	b0 04       	addri36.sp $r0,#0x10
- ae0:	b4 00       	lwi450 $r0,[$r0]
- ae2:	88 03       	add45 $r0,$r3
- ae4:	9a 08       	sub333 $r0,$r1,$r0
- ae6:	40 10 7c 0a 	srai $r1,$r0,#0x1f
- aea:	fe 0d       	xor33 $r0,$r1
- aec:	8a 01       	sub45 $r0,$r1
- aee:	fe 14       	mul33 $r0,$r2
- af0:	f0 a2       	swi37.sp $r0,[+#0x88]
- af2:	f0 22       	lwi37.sp $r0,[+#0x88]
- af4:	c0 17       	beqz38 $r0,b22 <main+0x2e6>
- af6:	84 00       	movi55 $r0,#0x0
- af8:	f0 a0       	swi37.sp $r0,[+#0x80]
- afa:	d5 12       	j8 b1e <main+0x2e2>
- afc:	f1 22       	lwi37.sp $r1,[+#0x88]
- afe:	84 0a       	movi55 $r0,#0xa
- b00:	40 10 80 17 	divr $r1,$r0,$r1,$r0
- b04:	80 40       	mov55 $r2,$r0
- b06:	80 1f       	mov55 $r0,$sp
- b08:	f1 20       	lwi37.sp $r1,[+#0x80]
- b0a:	38 20 06 0a 	sw $r2,[$r0+($r1<<#0x2)]
- b0e:	f1 22       	lwi37.sp $r1,[+#0x88]
- b10:	84 0a       	movi55 $r0,#0xa
- b12:	40 00 80 37 	divr $r0,$r1,$r1,$r0
- b16:	f0 a2       	swi37.sp $r0,[+#0x88]
- b18:	f0 20       	lwi37.sp $r0,[+#0x80]
- b1a:	8c 01       	addi45 $r0,#0x1
- b1c:	f0 a0       	swi37.sp $r0,[+#0x80]
- b1e:	f0 22       	lwi37.sp $r0,[+#0x88]
- b20:	c8 ee       	bnez38 $r0,afc <main+0x2c0>
- b22:	84 00       	movi55 $r0,#0x0
- b24:	f0 a8       	swi37.sp $r0,[+#0xa0]
- b26:	48 00 00 69 	j bf8 <main+0x3bc>
- b2a:	84 00       	movi55 $r0,#0x0
- b2c:	f0 a9       	swi37.sp $r0,[+#0xa4]
- b2e:	d5 5e       	j8 bea <main+0x3ae>
- b30:	84 00       	movi55 $r0,#0x0
- b32:	f0 a7       	swi37.sp $r0,[+#0x9c]
- b34:	d5 21       	j8 b76 <main+0x33a>
- b36:	46 00 01 f6 	sethi $r0,#0x1f6
- b3a:	50 00 08 60 	addi $r0,$r0,#0x860
- b3e:	f2 28       	lwi37.sp $r2,[+#0xa0]
- b40:	f1 27       	lwi37.sp $r1,[+#0x9c]
- b42:	8a 41       	sub45 $r2,$r1
- b44:	80 3f       	mov55 $r1,$sp
- b46:	38 20 8a 02 	lw $r2,[$r1+($r2<<#0x2)]
- b4a:	b0 48       	addri36.sp $r1,#0x20
- b4c:	38 10 8a 02 	lw $r1,[$r1+($r2<<#0x2)]
- b50:	b6 20       	swi450 $r1,[$r0]
- b52:	46 00 01 f6 	sethi $r0,#0x1f6
- b56:	50 00 08 00 	addi $r0,$r0,#0x800
- b5a:	f1 27       	lwi37.sp $r1,[+#0x9c]
- b5c:	52 20 80 07 	subri $r2,$r1,#0x7
- b60:	b0 53       	addri36.sp $r1,#0x4c
- b62:	38 10 8a 02 	lw $r1,[$r1+($r2<<#0x2)]
- b66:	b6 20       	swi450 $r1,[$r0]
- b68:	44 00 00 32 	movi $r0,#0x32
- b6c:	49 ff fb ea 	jal 340 <delay1>
- b70:	f0 27       	lwi37.sp $r0,[+#0x9c]
- b72:	8c 01       	addi45 $r0,#0x1
- b74:	f0 a7       	swi37.sp $r0,[+#0x9c]
- b76:	f0 27       	lwi37.sp $r0,[+#0x9c]
- b78:	f1 28       	lwi37.sp $r1,[+#0xa0]
- b7a:	e2 20       	slt45 $r1,$r0
- b7c:	e8 dd       	beqzs8 b36 <main+0x2fa>
- b7e:	84 00       	movi55 $r0,#0x0
+ a80:	f0 21       	lwi37.sp $r0,[+#0x84]
+ a82:	94 01       	slli333 $r0,$r0,#0x1
+ a84:	f0 a1       	swi37.sp $r0,[+#0x84]
+ a86:	f0 1b       	lwi37.sp $r0,[+#0x6c]
+ a88:	92 0f       	srli45 $r0,#0xf
+ a8a:	f0 9b       	swi37.sp $r0,[+#0x6c]
+ a8c:	f1 21       	lwi37.sp $r1,[+#0x84]
+ a8e:	f0 1b       	lwi37.sp $r0,[+#0x6c]
+ a90:	fe 0f       	or33 $r0,$r1
+ a92:	f0 a1       	swi37.sp $r0,[+#0x84]
+ a94:	46 00 01 f6 	sethi $r0,#0x1f6
+ a98:	50 00 08 20 	addi $r0,$r0,#0x820
+ a9c:	f1 21       	lwi37.sp $r1,[+#0x84]
+ a9e:	b6 20       	swi450 $r1,[$r0]
+ aa0:	44 01 86 a0 	movi $r0,#0x186a0
+ aa4:	49 ff fc 4e 	jal 340 <delay1>
+ aa8:	f0 27       	lwi37.sp $r0,[+#0x9c]
+ aaa:	8c 01       	addi45 $r0,#0x1
+ aac:	f0 a7       	swi37.sp $r0,[+#0x9c]
+ aae:	f0 27       	lwi37.sp $r0,[+#0x9c]
+ ab0:	e6 10       	slti45 $r0,#0x10
+ ab2:	e9 e2       	bnezs8 a76 <main+0x23a>
+ ab4:	b0 04       	addri36.sp $r0,#0x10
+ ab6:	a0 43       	lwi333 $r1,[$r0+#0xc]
+ ab8:	84 0a       	movi55 $r0,#0xa
+ aba:	fe 44       	mul33 $r1,$r0
+ abc:	b0 04       	addri36.sp $r0,#0x10
+ abe:	a0 02       	lwi333 $r0,[$r0+#0x8]
+ ac0:	88 20       	add45 $r1,$r0
+ ac2:	b0 04       	addri36.sp $r0,#0x10
+ ac4:	a0 81       	lwi333 $r2,[$r0+#0x4]
+ ac6:	84 0a       	movi55 $r0,#0xa
+ ac8:	fe 84       	mul33 $r2,$r0
+ aca:	b0 04       	addri36.sp $r0,#0x10
+ acc:	b4 00       	lwi450 $r0,[$r0]
+ ace:	88 02       	add45 $r0,$r2
+ ad0:	42 20 80 24 	mul $r2,$r1,$r0
+ ad4:	b0 04       	addri36.sp $r0,#0x10
+ ad6:	a0 43       	lwi333 $r1,[$r0+#0xc]
+ ad8:	84 0a       	movi55 $r0,#0xa
+ ada:	fe 44       	mul33 $r1,$r0
+ adc:	b0 04       	addri36.sp $r0,#0x10
+ ade:	a0 02       	lwi333 $r0,[$r0+#0x8]
+ ae0:	88 20       	add45 $r1,$r0
+ ae2:	b0 04       	addri36.sp $r0,#0x10
+ ae4:	a0 c1       	lwi333 $r3,[$r0+#0x4]
+ ae6:	84 0a       	movi55 $r0,#0xa
+ ae8:	fe c4       	mul33 $r3,$r0
+ aea:	b0 04       	addri36.sp $r0,#0x10
+ aec:	b4 00       	lwi450 $r0,[$r0]
+ aee:	88 03       	add45 $r0,$r3
+ af0:	9a 08       	sub333 $r0,$r1,$r0
+ af2:	40 10 7c 0a 	srai $r1,$r0,#0x1f
+ af6:	fe 0d       	xor33 $r0,$r1
+ af8:	8a 01       	sub45 $r0,$r1
+ afa:	fe 14       	mul33 $r0,$r2
+ afc:	f0 a4       	swi37.sp $r0,[+#0x90]
+ afe:	f0 24       	lwi37.sp $r0,[+#0x90]
+ b00:	c0 17       	beqz38 $r0,b2e <main+0x2f2>
+ b02:	84 00       	movi55 $r0,#0x0
+ b04:	f0 a2       	swi37.sp $r0,[+#0x88]
+ b06:	d5 12       	j8 b2a <main+0x2ee>
+ b08:	f1 24       	lwi37.sp $r1,[+#0x90]
+ b0a:	84 0a       	movi55 $r0,#0xa
+ b0c:	40 10 80 17 	divr $r1,$r0,$r1,$r0
+ b10:	80 40       	mov55 $r2,$r0
+ b12:	80 1f       	mov55 $r0,$sp
+ b14:	f1 22       	lwi37.sp $r1,[+#0x88]
+ b16:	38 20 06 0a 	sw $r2,[$r0+($r1<<#0x2)]
+ b1a:	f1 24       	lwi37.sp $r1,[+#0x90]
+ b1c:	84 0a       	movi55 $r0,#0xa
+ b1e:	40 00 80 37 	divr $r0,$r1,$r1,$r0
+ b22:	f0 a4       	swi37.sp $r0,[+#0x90]
+ b24:	f0 22       	lwi37.sp $r0,[+#0x88]
+ b26:	8c 01       	addi45 $r0,#0x1
+ b28:	f0 a2       	swi37.sp $r0,[+#0x88]
+ b2a:	f0 24       	lwi37.sp $r0,[+#0x90]
+ b2c:	c8 ee       	bnez38 $r0,b08 <main+0x2cc>
+ b2e:	84 00       	movi55 $r0,#0x0
+ b30:	f0 a8       	swi37.sp $r0,[+#0xa0]
+ b32:	48 00 00 69 	j c04 <main+0x3c8>
+ b36:	84 00       	movi55 $r0,#0x0
+ b38:	f0 a9       	swi37.sp $r0,[+#0xa4]
+ b3a:	d5 5e       	j8 bf6 <main+0x3ba>
+ b3c:	84 00       	movi55 $r0,#0x0
+ b3e:	f0 a7       	swi37.sp $r0,[+#0x9c]
+ b40:	d5 21       	j8 b82 <main+0x346>
+ b42:	46 00 01 f6 	sethi $r0,#0x1f6
+ b46:	50 00 08 60 	addi $r0,$r0,#0x860
+ b4a:	f2 28       	lwi37.sp $r2,[+#0xa0]
+ b4c:	f1 27       	lwi37.sp $r1,[+#0x9c]
+ b4e:	8a 41       	sub45 $r2,$r1
+ b50:	80 3f       	mov55 $r1,$sp
+ b52:	38 20 8a 02 	lw $r2,[$r1+($r2<<#0x2)]
+ b56:	b0 48       	addri36.sp $r1,#0x20
+ b58:	38 10 8a 02 	lw $r1,[$r1+($r2<<#0x2)]
+ b5c:	b6 20       	swi450 $r1,[$r0]
+ b5e:	46 00 01 f6 	sethi $r0,#0x1f6
+ b62:	50 00 08 00 	addi $r0,$r0,#0x800
+ b66:	f1 27       	lwi37.sp $r1,[+#0x9c]
+ b68:	52 20 80 07 	subri $r2,$r1,#0x7
+ b6c:	b0 53       	addri36.sp $r1,#0x4c
+ b6e:	38 10 8a 02 	lw $r1,[$r1+($r2<<#0x2)]
+ b72:	b6 20       	swi450 $r1,[$r0]
+ b74:	44 00 00 32 	movi $r0,#0x32
+ b78:	49 ff fb e4 	jal 340 <delay1>
+ b7c:	f0 27       	lwi37.sp $r0,[+#0x9c]
+ b7e:	8c 01       	addi45 $r0,#0x1
  b80:	f0 a7       	swi37.sp $r0,[+#0x9c]
- b82:	d5 2e       	j8 bde <main+0x3a2>
- b84:	f0 27       	lwi37.sp $r0,[+#0x9c]
- b86:	5a 08 01 07 	bnec $r0,#0x1,b94 <main+0x358>
- b8a:	b0 04       	addri36.sp $r0,#0x10
- b8c:	f1 27       	lwi37.sp $r1,[+#0x9c]
- b8e:	38 00 06 02 	lw $r0,[$r0+($r1<<#0x2)]
- b92:	c0 09       	beqz38 $r0,ba4 <main+0x368>
- b94:	f0 27       	lwi37.sp $r0,[+#0x9c]
- b96:	5a 08 03 08 	bnec $r0,#0x3,ba6 <main+0x36a>
- b9a:	b0 04       	addri36.sp $r0,#0x10
- b9c:	f1 27       	lwi37.sp $r1,[+#0x9c]
- b9e:	38 00 06 02 	lw $r0,[$r0+($r1<<#0x2)]
- ba2:	c8 02       	bnez38 $r0,ba6 <main+0x36a>
- ba4:	d5 1a       	j8 bd8 <main+0x39c>
- ba6:	46 00 01 f6 	sethi $r0,#0x1f6
- baa:	50 00 08 60 	addi $r0,$r0,#0x860
- bae:	b0 44       	addri36.sp $r1,#0x10
- bb0:	f2 27       	lwi37.sp $r2,[+#0x9c]
- bb2:	38 20 8a 02 	lw $r2,[$r1+($r2<<#0x2)]
- bb6:	b0 48       	addri36.sp $r1,#0x20
- bb8:	38 10 8a 02 	lw $r1,[$r1+($r2<<#0x2)]
- bbc:	b6 20       	swi450 $r1,[$r0]
- bbe:	46 00 01 f6 	sethi $r0,#0x1f6
- bc2:	50 00 08 00 	addi $r0,$r0,#0x800
- bc6:	b0 53       	addri36.sp $r1,#0x4c
- bc8:	f2 27       	lwi37.sp $r2,[+#0x9c]
- bca:	38 10 8a 02 	lw $r1,[$r1+($r2<<#0x2)]
- bce:	b6 20       	swi450 $r1,[$r0]
- bd0:	44 00 00 32 	movi $r0,#0x32
- bd4:	49 ff fb b6 	jal 340 <delay1>
- bd8:	f0 27       	lwi37.sp $r0,[+#0x9c]
- bda:	8c 01       	addi45 $r0,#0x1
- bdc:	f0 a7       	swi37.sp $r0,[+#0x9c]
- bde:	f0 27       	lwi37.sp $r0,[+#0x9c]
- be0:	e6 04       	slti45 $r0,#0x4
- be2:	e9 d1       	bnezs8 b84 <main+0x348>
- be4:	f0 29       	lwi37.sp $r0,[+#0xa4]
+ b82:	f0 27       	lwi37.sp $r0,[+#0x9c]
+ b84:	f1 28       	lwi37.sp $r1,[+#0xa0]
+ b86:	e2 20       	slt45 $r1,$r0
+ b88:	e8 dd       	beqzs8 b42 <main+0x306>
+ b8a:	84 00       	movi55 $r0,#0x0
+ b8c:	f0 a7       	swi37.sp $r0,[+#0x9c]
+ b8e:	d5 2e       	j8 bea <main+0x3ae>
+ b90:	f0 27       	lwi37.sp $r0,[+#0x9c]
+ b92:	5a 08 01 07 	bnec $r0,#0x1,ba0 <main+0x364>
+ b96:	b0 04       	addri36.sp $r0,#0x10
+ b98:	f1 27       	lwi37.sp $r1,[+#0x9c]
+ b9a:	38 00 06 02 	lw $r0,[$r0+($r1<<#0x2)]
+ b9e:	c0 09       	beqz38 $r0,bb0 <main+0x374>
+ ba0:	f0 27       	lwi37.sp $r0,[+#0x9c]
+ ba2:	5a 08 03 08 	bnec $r0,#0x3,bb2 <main+0x376>
+ ba6:	b0 04       	addri36.sp $r0,#0x10
+ ba8:	f1 27       	lwi37.sp $r1,[+#0x9c]
+ baa:	38 00 06 02 	lw $r0,[$r0+($r1<<#0x2)]
+ bae:	c8 02       	bnez38 $r0,bb2 <main+0x376>
+ bb0:	d5 1a       	j8 be4 <main+0x3a8>
+ bb2:	46 00 01 f6 	sethi $r0,#0x1f6
+ bb6:	50 00 08 60 	addi $r0,$r0,#0x860
+ bba:	b0 44       	addri36.sp $r1,#0x10
+ bbc:	f2 27       	lwi37.sp $r2,[+#0x9c]
+ bbe:	38 20 8a 02 	lw $r2,[$r1+($r2<<#0x2)]
+ bc2:	b0 48       	addri36.sp $r1,#0x20
+ bc4:	38 10 8a 02 	lw $r1,[$r1+($r2<<#0x2)]
+ bc8:	b6 20       	swi450 $r1,[$r0]
+ bca:	46 00 01 f6 	sethi $r0,#0x1f6
+ bce:	50 00 08 00 	addi $r0,$r0,#0x800
+ bd2:	b0 53       	addri36.sp $r1,#0x4c
+ bd4:	f2 27       	lwi37.sp $r2,[+#0x9c]
+ bd6:	38 10 8a 02 	lw $r1,[$r1+($r2<<#0x2)]
+ bda:	b6 20       	swi450 $r1,[$r0]
+ bdc:	44 00 00 32 	movi $r0,#0x32
+ be0:	49 ff fb b0 	jal 340 <delay1>
+ be4:	f0 27       	lwi37.sp $r0,[+#0x9c]
  be6:	8c 01       	addi45 $r0,#0x1
- be8:	f0 a9       	swi37.sp $r0,[+#0xa4]
- bea:	f0 29       	lwi37.sp $r0,[+#0xa4]
- bec:	5c f0 03 e8 	slti $r15,$r0,#0x3e8
- bf0:	e9 a0       	bnezs8 b30 <main+0x2f4>
- bf2:	f0 28       	lwi37.sp $r0,[+#0xa0]
- bf4:	8c 01       	addi45 $r0,#0x1
- bf6:	f0 a8       	swi37.sp $r0,[+#0xa0]
- bf8:	f0 28       	lwi37.sp $r0,[+#0xa0]
- bfa:	e6 04       	slti45 $r0,#0x4
- bfc:	e9 97       	bnezs8 b2a <main+0x2ee>
- bfe:	84 00       	movi55 $r0,#0x0
- c00:	f0 a7       	swi37.sp $r0,[+#0x9c]
- c02:	d5 0a       	j8 c16 <main+0x3da>
- c04:	46 00 01 f6 	sethi $r0,#0x1f6
- c08:	50 00 08 20 	addi $r0,$r0,#0x820
- c0c:	f1 1f       	lwi37.sp $r1,[+#0x7c]
- c0e:	b6 20       	swi450 $r1,[$r0]
- c10:	f0 27       	lwi37.sp $r0,[+#0x9c]
- c12:	8c 01       	addi45 $r0,#0x1
- c14:	f0 a7       	swi37.sp $r0,[+#0x9c]
- c16:	f0 27       	lwi37.sp $r0,[+#0x9c]
- c18:	e6 10       	slti45 $r0,#0x10
- c1a:	e9 f5       	bnezs8 c04 <main+0x3c8>
- c1c:	84 00       	movi55 $r0,#0x0
- c1e:	f0 a9       	swi37.sp $r0,[+#0xa4]
- c20:	d5 5a       	j8 cd4 <main+0x498>
- c22:	84 00       	movi55 $r0,#0x0
- c24:	f0 a7       	swi37.sp $r0,[+#0x9c]
- c26:	d5 2e       	j8 c82 <main+0x446>
- c28:	f0 27       	lwi37.sp $r0,[+#0x9c]
- c2a:	5a 08 01 07 	bnec $r0,#0x1,c38 <main+0x3fc>
- c2e:	b0 04       	addri36.sp $r0,#0x10
- c30:	f1 27       	lwi37.sp $r1,[+#0x9c]
- c32:	38 00 06 02 	lw $r0,[$r0+($r1<<#0x2)]
- c36:	c0 09       	beqz38 $r0,c48 <main+0x40c>
- c38:	f0 27       	lwi37.sp $r0,[+#0x9c]
- c3a:	5a 08 03 08 	bnec $r0,#0x3,c4a <main+0x40e>
- c3e:	b0 04       	addri36.sp $r0,#0x10
- c40:	f1 27       	lwi37.sp $r1,[+#0x9c]
- c42:	38 00 06 02 	lw $r0,[$r0+($r1<<#0x2)]
- c46:	c8 02       	bnez38 $r0,c4a <main+0x40e>
- c48:	d5 1a       	j8 c7c <main+0x440>
- c4a:	46 00 01 f6 	sethi $r0,#0x1f6
- c4e:	50 00 08 60 	addi $r0,$r0,#0x860
- c52:	b0 44       	addri36.sp $r1,#0x10
- c54:	f2 27       	lwi37.sp $r2,[+#0x9c]
- c56:	38 20 8a 02 	lw $r2,[$r1+($r2<<#0x2)]
- c5a:	b0 48       	addri36.sp $r1,#0x20
- c5c:	38 10 8a 02 	lw $r1,[$r1+($r2<<#0x2)]
- c60:	b6 20       	swi450 $r1,[$r0]
- c62:	46 00 01 f6 	sethi $r0,#0x1f6
- c66:	50 00 08 00 	addi $r0,$r0,#0x800
- c6a:	b0 53       	addri36.sp $r1,#0x4c
- c6c:	f2 27       	lwi37.sp $r2,[+#0x9c]
- c6e:	38 10 8a 02 	lw $r1,[$r1+($r2<<#0x2)]
- c72:	b6 20       	swi450 $r1,[$r0]
- c74:	44 00 00 32 	movi $r0,#0x32
- c78:	49 ff fb 64 	jal 340 <delay1>
- c7c:	f0 27       	lwi37.sp $r0,[+#0x9c]
- c7e:	8c 01       	addi45 $r0,#0x1
- c80:	f0 a7       	swi37.sp $r0,[+#0x9c]
- c82:	f0 27       	lwi37.sp $r0,[+#0x9c]
- c84:	e6 04       	slti45 $r0,#0x4
- c86:	e9 d1       	bnezs8 c28 <main+0x3ec>
- c88:	84 00       	movi55 $r0,#0x0
- c8a:	f0 a7       	swi37.sp $r0,[+#0x9c]
- c8c:	d5 1e       	j8 cc8 <main+0x48c>
- c8e:	46 00 01 f6 	sethi $r0,#0x1f6
- c92:	50 00 08 60 	addi $r0,$r0,#0x860
- c96:	80 3f       	mov55 $r1,$sp
- c98:	f2 27       	lwi37.sp $r2,[+#0x9c]
- c9a:	38 20 8a 02 	lw $r2,[$r1+($r2<<#0x2)]
- c9e:	b0 48       	addri36.sp $r1,#0x20
- ca0:	38 10 8a 02 	lw $r1,[$r1+($r2<<#0x2)]
- ca4:	b6 20       	swi450 $r1,[$r0]
- ca6:	46 00 01 f6 	sethi $r0,#0x1f6
- caa:	50 00 08 00 	addi $r0,$r0,#0x800
- cae:	f1 27       	lwi37.sp $r1,[+#0x9c]
- cb0:	9c 8c       	addi333 $r2,$r1,#0x4
- cb2:	b0 53       	addri36.sp $r1,#0x4c
- cb4:	38 10 8a 02 	lw $r1,[$r1+($r2<<#0x2)]
- cb8:	b6 20       	swi450 $r1,[$r0]
- cba:	44 00 00 32 	movi $r0,#0x32
- cbe:	49 ff fb 41 	jal 340 <delay1>
- cc2:	f0 27       	lwi37.sp $r0,[+#0x9c]
- cc4:	8c 01       	addi45 $r0,#0x1
- cc6:	f0 a7       	swi37.sp $r0,[+#0x9c]
- cc8:	f0 27       	lwi37.sp $r0,[+#0x9c]
- cca:	e6 04       	slti45 $r0,#0x4
- ccc:	e9 e1       	bnezs8 c8e <main+0x452>
- cce:	f0 29       	lwi37.sp $r0,[+#0xa4]
+ be8:	f0 a7       	swi37.sp $r0,[+#0x9c]
+ bea:	f0 27       	lwi37.sp $r0,[+#0x9c]
+ bec:	e6 04       	slti45 $r0,#0x4
+ bee:	e9 d1       	bnezs8 b90 <main+0x354>
+ bf0:	f0 29       	lwi37.sp $r0,[+#0xa4]
+ bf2:	8c 01       	addi45 $r0,#0x1
+ bf4:	f0 a9       	swi37.sp $r0,[+#0xa4]
+ bf6:	f0 29       	lwi37.sp $r0,[+#0xa4]
+ bf8:	5c f0 03 e8 	slti $r15,$r0,#0x3e8
+ bfc:	e9 a0       	bnezs8 b3c <main+0x300>
+ bfe:	f0 28       	lwi37.sp $r0,[+#0xa0]
+ c00:	8c 01       	addi45 $r0,#0x1
+ c02:	f0 a8       	swi37.sp $r0,[+#0xa0]
+ c04:	f0 28       	lwi37.sp $r0,[+#0xa0]
+ c06:	e6 04       	slti45 $r0,#0x4
+ c08:	e9 97       	bnezs8 b36 <main+0x2fa>
+ c0a:	84 00       	movi55 $r0,#0x0
+ c0c:	f0 a7       	swi37.sp $r0,[+#0x9c]
+ c0e:	d5 0a       	j8 c22 <main+0x3e6>
+ c10:	46 00 01 f6 	sethi $r0,#0x1f6
+ c14:	50 00 08 20 	addi $r0,$r0,#0x820
+ c18:	f1 21       	lwi37.sp $r1,[+#0x84]
+ c1a:	b6 20       	swi450 $r1,[$r0]
+ c1c:	f0 27       	lwi37.sp $r0,[+#0x9c]
+ c1e:	8c 01       	addi45 $r0,#0x1
+ c20:	f0 a7       	swi37.sp $r0,[+#0x9c]
+ c22:	f0 27       	lwi37.sp $r0,[+#0x9c]
+ c24:	e6 10       	slti45 $r0,#0x10
+ c26:	e9 f5       	bnezs8 c10 <main+0x3d4>
+ c28:	84 00       	movi55 $r0,#0x0
+ c2a:	f0 a9       	swi37.sp $r0,[+#0xa4]
+ c2c:	d5 5a       	j8 ce0 <main+0x4a4>
+ c2e:	84 00       	movi55 $r0,#0x0
+ c30:	f0 a7       	swi37.sp $r0,[+#0x9c]
+ c32:	d5 2e       	j8 c8e <main+0x452>
+ c34:	f0 27       	lwi37.sp $r0,[+#0x9c]
+ c36:	5a 08 01 07 	bnec $r0,#0x1,c44 <main+0x408>
+ c3a:	b0 04       	addri36.sp $r0,#0x10
+ c3c:	f1 27       	lwi37.sp $r1,[+#0x9c]
+ c3e:	38 00 06 02 	lw $r0,[$r0+($r1<<#0x2)]
+ c42:	c0 09       	beqz38 $r0,c54 <main+0x418>
+ c44:	f0 27       	lwi37.sp $r0,[+#0x9c]
+ c46:	5a 08 03 08 	bnec $r0,#0x3,c56 <main+0x41a>
+ c4a:	b0 04       	addri36.sp $r0,#0x10
+ c4c:	f1 27       	lwi37.sp $r1,[+#0x9c]
+ c4e:	38 00 06 02 	lw $r0,[$r0+($r1<<#0x2)]
+ c52:	c8 02       	bnez38 $r0,c56 <main+0x41a>
+ c54:	d5 1a       	j8 c88 <main+0x44c>
+ c56:	46 00 01 f6 	sethi $r0,#0x1f6
+ c5a:	50 00 08 60 	addi $r0,$r0,#0x860
+ c5e:	b0 44       	addri36.sp $r1,#0x10
+ c60:	f2 27       	lwi37.sp $r2,[+#0x9c]
+ c62:	38 20 8a 02 	lw $r2,[$r1+($r2<<#0x2)]
+ c66:	b0 48       	addri36.sp $r1,#0x20
+ c68:	38 10 8a 02 	lw $r1,[$r1+($r2<<#0x2)]
+ c6c:	b6 20       	swi450 $r1,[$r0]
+ c6e:	46 00 01 f6 	sethi $r0,#0x1f6
+ c72:	50 00 08 00 	addi $r0,$r0,#0x800
+ c76:	b0 53       	addri36.sp $r1,#0x4c
+ c78:	f2 27       	lwi37.sp $r2,[+#0x9c]
+ c7a:	38 10 8a 02 	lw $r1,[$r1+($r2<<#0x2)]
+ c7e:	b6 20       	swi450 $r1,[$r0]
+ c80:	44 00 00 32 	movi $r0,#0x32
+ c84:	49 ff fb 5e 	jal 340 <delay1>
+ c88:	f0 27       	lwi37.sp $r0,[+#0x9c]
+ c8a:	8c 01       	addi45 $r0,#0x1
+ c8c:	f0 a7       	swi37.sp $r0,[+#0x9c]
+ c8e:	f0 27       	lwi37.sp $r0,[+#0x9c]
+ c90:	e6 04       	slti45 $r0,#0x4
+ c92:	e9 d1       	bnezs8 c34 <main+0x3f8>
+ c94:	84 00       	movi55 $r0,#0x0
+ c96:	f0 a7       	swi37.sp $r0,[+#0x9c]
+ c98:	d5 1e       	j8 cd4 <main+0x498>
+ c9a:	46 00 01 f6 	sethi $r0,#0x1f6
+ c9e:	50 00 08 60 	addi $r0,$r0,#0x860
+ ca2:	80 3f       	mov55 $r1,$sp
+ ca4:	f2 27       	lwi37.sp $r2,[+#0x9c]
+ ca6:	38 20 8a 02 	lw $r2,[$r1+($r2<<#0x2)]
+ caa:	b0 48       	addri36.sp $r1,#0x20
+ cac:	38 10 8a 02 	lw $r1,[$r1+($r2<<#0x2)]
+ cb0:	b6 20       	swi450 $r1,[$r0]
+ cb2:	46 00 01 f6 	sethi $r0,#0x1f6
+ cb6:	50 00 08 00 	addi $r0,$r0,#0x800
+ cba:	f1 27       	lwi37.sp $r1,[+#0x9c]
+ cbc:	9c 8c       	addi333 $r2,$r1,#0x4
+ cbe:	b0 53       	addri36.sp $r1,#0x4c
+ cc0:	38 10 8a 02 	lw $r1,[$r1+($r2<<#0x2)]
+ cc4:	b6 20       	swi450 $r1,[$r0]
+ cc6:	44 00 00 32 	movi $r0,#0x32
+ cca:	49 ff fb 3b 	jal 340 <delay1>
+ cce:	f0 27       	lwi37.sp $r0,[+#0x9c]
  cd0:	8c 01       	addi45 $r0,#0x1
- cd2:	f0 a9       	swi37.sp $r0,[+#0xa4]
- cd4:	f0 29       	lwi37.sp $r0,[+#0xa4]
- cd6:	5c f0 05 dc 	slti $r15,$r0,#0x5dc
- cda:	e9 a4       	bnezs8 c22 <main+0x3e6>
- cdc:	48 ff fe 3c 	j 954 <main+0x118>
+ cd2:	f0 a7       	swi37.sp $r0,[+#0x9c]
+ cd4:	f0 27       	lwi37.sp $r0,[+#0x9c]
+ cd6:	e6 04       	slti45 $r0,#0x4
+ cd8:	e9 e1       	bnezs8 c9a <main+0x45e>
+ cda:	f0 29       	lwi37.sp $r0,[+#0xa4]
+ cdc:	8c 01       	addi45 $r0,#0x1
+ cde:	f0 a9       	swi37.sp $r0,[+#0xa4]
+ ce0:	f0 29       	lwi37.sp $r0,[+#0xa4]
+ ce2:	5c f0 05 dc 	slti $r15,$r0,#0x5dc
+ ce6:	e9 a4       	bnezs8 c2e <main+0x3f2>
+ ce8:	48 ff fe 36 	j 954 <main+0x118>
 
-00000ce0 <memcpy>:
- ce0:	80 60       	mov55 $r3,$r0
- ce2:	c2 07       	beqz38 $r2,cf0 <memcpy+0x10>
- ce4:	99 4a       	add333 $r5,$r1,$r2
- ce6:	08 40 80 01 	lbi.bi $r4,[$r1],#0x1
- cea:	18 41 80 01 	sbi.bi $r4,[$r3],#0x1
- cee:	d9 fc       	bnes38 $r1,ce6 <memcpy+0x6>
- cf0:	dd 9e       	ret5 $lp
- cf2:	92 00       	nop16
+00000cec <memcpy>:
+ cec:	80 60       	mov55 $r3,$r0
+ cee:	c2 07       	beqz38 $r2,cfc <memcpy+0x10>
+ cf0:	99 4a       	add333 $r5,$r1,$r2
+ cf2:	08 40 80 01 	lbi.bi $r4,[$r1],#0x1
+ cf6:	18 41 80 01 	sbi.bi $r4,[$r3],#0x1
+ cfa:	d9 fc       	bnes38 $r1,cf2 <memcpy+0x6>
+ cfc:	dd 9e       	ret5 $lp
+ cfe:	92 00       	nop16
 
-00000cf4 <memset>:
- cf4:	80 60       	mov55 $r3,$r0
- cf6:	99 5a       	add333 $r5,$r3,$r2
- cf8:	d3 04       	beqs38 $r3,d00 <memset+0xc>
- cfa:	18 11 80 01 	sbi.bi $r1,[$r3],#0x1
- cfe:	d5 fd       	j8 cf8 <memset+0x4>
- d00:	dd 9e       	ret5 $lp
- d02:	92 00       	nop16
+00000d00 <memset>:
+ d00:	80 60       	mov55 $r3,$r0
+ d02:	99 5a       	add333 $r5,$r3,$r2
+ d04:	d3 04       	beqs38 $r3,d0c <memset+0xc>
+ d06:	18 11 80 01 	sbi.bi $r1,[$r3],#0x1
+ d0a:	d5 fd       	j8 d04 <memset+0x4>
+ d0c:	dd 9e       	ret5 $lp
+ d0e:	92 00       	nop16
