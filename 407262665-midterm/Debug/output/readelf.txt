@@ -10,7 +10,7 @@ ELF Header:
   Version:                           0x1
   Entry point address:               0x1a0
   Start of program headers:          52 (bytes into file)
-  Start of section headers:          83028 (bytes into file)
+  Start of section headers:          82964 (bytes into file)
   Flags:                             0x40010042, AABI, Andes ELF V1.4, Andes Star v3.0m, 16REG
   Size of this header:               52 (bytes)
   Size of program headers:           32 (bytes)
@@ -27,20 +27,20 @@ Section Headers:
   [ 3] .nds32_wrh        PROGBITS        00000104 001104 000004 00   A  0   0  4
   [ 4] .nds32_jmptbl     PROGBITS        00000108 001108 000040 00   A  0   0  4
   [ 5] .nds32_isr        PROGBITS        00000148 001148 0000d8 00  AX  0   0  2
-  [ 6] .text             PROGBITS        00000220 001220 000b04 00  AX  0   0  4
-  [ 7] .rodata           PROGBITS        00000d24 001d24 000140 00   A  0   0  4
+  [ 6] .text             PROGBITS        00000220 001220 000ae4 00  AX  0   0  4
+  [ 7] .rodata           PROGBITS        00000d04 001d04 000140 00   A  0   0  4
   [ 8] .bss              NOBITS          00100200 002200 000018 00  WA  0   0  4
-  [ 9] .comment          PROGBITS        00000000 001e64 00002f 01  MS  0   0  1
-  [10] .debug_aranges    PROGBITS        00000000 001e98 000240 00      0   0  8
-  [11] .debug_info       PROGBITS        00000000 0020d8 0027d2 00      0   0  1
-  [12] .debug_abbrev     PROGBITS        00000000 0048aa 0005a8 00      0   0  1
-  [13] .debug_line       PROGBITS        00000000 004e52 00169d 00      0   0  1
-  [14] .debug_frame      PROGBITS        00000000 0064f0 0002d8 00      0   0  4
-  [15] .debug_str        PROGBITS        00000000 0067c8 00beeb 01  MS  0   0  1
-  [16] .debug_macro      PROGBITS        00000000 0126b3 001cd0 00      0   0  1
-  [17] .shstrtab         STRTAB          00000000 014383 0000cf 00      0   0  1
-  [18] .symtab           SYMTAB          00000000 014774 000cb0 10     19 119  4
-  [19] .strtab           STRTAB          00000000 015424 000597 00      0   0  1
+  [ 9] .comment          PROGBITS        00000000 001e44 00002f 01  MS  0   0  1
+  [10] .debug_aranges    PROGBITS        00000000 001e78 000240 00      0   0  8
+  [11] .debug_info       PROGBITS        00000000 0020b8 0027f1 00      0   0  1
+  [12] .debug_abbrev     PROGBITS        00000000 0048a9 0005a8 00      0   0  1
+  [13] .debug_line       PROGBITS        00000000 004e51 00165b 00      0   0  1
+  [14] .debug_frame      PROGBITS        00000000 0064ac 0002d8 00      0   0  4
+  [15] .debug_str        PROGBITS        00000000 006784 00bef1 01  MS  0   0  1
+  [16] .debug_macro      PROGBITS        00000000 012675 001cd0 00      0   0  1
+  [17] .shstrtab         STRTAB          00000000 014345 0000cf 00      0   0  1
+  [18] .symtab           SYMTAB          00000000 014734 000cb0 10     19 119  4
+  [19] .strtab           STRTAB          00000000 0153e4 000597 00      0   0  1
 Key to Flags:
   W (write), A (alloc), X (execute), M (merge), S (strings)
   I (info), L (link order), G (group), T (TLS), E (exclude), x (unknown)
@@ -50,8 +50,8 @@ There are no section groups in this file.
 
 Program Headers:
   Type           Offset   VirtAddr   PhysAddr   FileSiz MemSiz  Flg Align
-  LOAD           0x001000 0x00000000 0x00000000 0x00e64 0x00e64 R E 0x1000
-  LOAD           0x002200 0x00100200 0x00000e64 0x00000 0x00018 RW  0x1000
+  LOAD           0x001000 0x00000000 0x00000000 0x00e44 0x00e44 R E 0x1000
+  LOAD           0x002200 0x00100200 0x00000e44 0x00000 0x00018 RW  0x1000
 
  Section to Segment mapping:
   Segment Sections...
@@ -73,7 +73,7 @@ Symbol table '.symtab' contains 203 entries:
      4: 00000108     0 SECTION LOCAL  DEFAULT    4 
      5: 00000148     0 SECTION LOCAL  DEFAULT    5 
      6: 00000220     0 SECTION LOCAL  DEFAULT    6 
-     7: 00000d24     0 SECTION LOCAL  DEFAULT    7 
+     7: 00000d04     0 SECTION LOCAL  DEFAULT    7 
      8: 00100200     0 SECTION LOCAL  DEFAULT    8 
      9: 00000000     0 SECTION LOCAL  DEFAULT    9 
     10: 00000000     0 SECTION LOCAL  DEFAULT   10 
@@ -181,9 +181,9 @@ Symbol table '.symtab' contains 203 entries:
    112: 000007d0     0 NOTYPE  LOCAL  DEFAULT    6 $d2
    113: 000007d4     0 NOTYPE  LOCAL  DEFAULT    6 $c
    114: 00000000     0 FILE    LOCAL  DEFAULT  ABS lib_a-memcpy.o
-   115: 00000d00     0 NOTYPE  LOCAL  DEFAULT    6 $c
+   115: 00000ce0     0 NOTYPE  LOCAL  DEFAULT    6 $c
    116: 00000000     0 FILE    LOCAL  DEFAULT  ABS lib_a-memset.o
-   117: 00000d14     0 NOTYPE  LOCAL  DEFAULT    6 $c
+   117: 00000cf4     0 NOTYPE  LOCAL  DEFAULT    6 $c
    118: 00000000     0 FILE    LOCAL  DEFAULT  ABS 
    119: 00000220     2 FUNC    WEAK   DEFAULT    6 HW2_ISR
    120: 000002f4    30 FUNC    GLOBAL DEFAULT    6 reset_handler
@@ -200,7 +200,7 @@ Symbol table '.symtab' contains 203 entries:
    131: 000002e0    20 FUNC    GLOBAL DEFAULT    6 clear_swi
    132: 00000148    66 FUNC    GLOBAL DEFAULT    5 _nds32_e_sa_nr
    133: 00000118     4 OBJECT  WEAK   DEFAULT    4 _nds32_jmptbl_04
-   134: 00000d00    18 FUNC    GLOBAL DEFAULT    6 memcpy
+   134: 00000ce0    18 FUNC    GLOBAL DEFAULT    6 memcpy
    135: 000002a8     6 FUNC    GLOBAL DEFAULT    6 GIE_ENABLE
    136: 000002b8    32 FUNC    GLOBAL DEFAULT    6 gen_swi
    137: 0000025c    50 FUNC    GLOBAL DEFAULT    6 __cpu_init
@@ -232,8 +232,8 @@ Symbol table '.symtab' contains 203 entries:
    163: 00000100     4 OBJECT  GLOBAL DEFAULT    2 _nds32_nmih
    164: 00100200     0 NOTYPE  GLOBAL DEFAULT    8 __bss_start
    165: 00000108     4 OBJECT  GLOBAL DEFAULT    4 _nds32_jmptbl_00
-   166: 00000d14    14 FUNC    GLOBAL DEFAULT    6 memset
-   167: 0000083c  1218 FUNC    GLOBAL DEFAULT    6 main
+   166: 00000cf4    14 FUNC    GLOBAL DEFAULT    6 memset
+   167: 0000083c  1188 FUNC    GLOBAL DEFAULT    6 main
    168: 000003c0    22 FUNC    GLOBAL DEFAULT    6 DRV_IntInitial
    169: 00000104     4 OBJECT  GLOBAL DEFAULT    3 _nds32_wrh
    170: 00000090    16 FUNC    GLOBAL DEFAULT    1 _nds32_vector_09
@@ -248,7 +248,7 @@ Symbol table '.symtab' contains 203 entries:
    179: 00000328    22 FUNC    GLOBAL DEFAULT    6 SW0_ISR
    180: 00000134     4 OBJECT  WEAK   DEFAULT    4 _nds32_jmptbl_11
    181: 00000668   468 FUNC    GLOBAL DEFAULT    6 DRV_Printf
-   182: 00000e64     0 NOTYPE  GLOBAL DEFAULT  ABS __data_lmastart
+   182: 00000e44     0 NOTYPE  GLOBAL DEFAULT  ABS __data_lmastart
    183: 000000f0    16 FUNC    GLOBAL DEFAULT    1 _nds32_vector_15
    184: 00000470    50 FUNC    GLOBAL DEFAULT    6 DRV_PutStr
    185: 00100200     0 NOTYPE  GLOBAL DEFAULT    8 _edata
