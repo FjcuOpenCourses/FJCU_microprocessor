@@ -426,18 +426,23 @@ int main()
 			}
 
 			led=0x0000;
-			for(i=0;i<8;++i){
-				if(state&&0x0001){
-					led=led|(~(0x0001<<i));
-					led=led||(0x0001<<(i+8));
+			unsigned int low=0x0000;
+			unsigned int hight=0x0000;
 
+			for(i=7;i>=0&&i<8;--i){
+				if(state&0x0001){
+					hight<<=1;
+					low=(low<<1)|0x0001;
 				}
 				else{
-					led=led|(~(0x0001<<(i+8)));
-					led=led||(0x0001<<i);
+					low<<=1;
+				    hight=(hight<<1)|0x0001;
 				}
 				state>>=1;
 			}
+			led=(hight<<8)|low;
+
+
 			for(i = 0; i < 16; i++)
 				{
 					unsigned int cut = led & 0x8000;
