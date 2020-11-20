@@ -375,7 +375,9 @@ int main()
 	GPIO_PTB_DIR = 0x0000;	//for GPIO
 	GPIO_PTB_CFG = 0xFFFF;	//for push pull
 
+
 	 unsigned int tmp,count,ans1,ans2,origin,opt,m1, m2, t1, state,number1,number2;
+
 	 unsigned int input[4]={0,0,0,0};
 	 unsigned int output[4]={0,10,10,10};
 	 unsigned int set=1;
@@ -388,6 +390,19 @@ int main()
 
 			ans1=tmp&0x000f;
 			ans2=(tmp&0x0f0)>>4;
+
+	 tmp = (GPIO_PTC_PADIN >> 2) & 0x0000000F;
+	 origin =tmp;
+	 unsigned ans1 =tmp;
+	 unsigned ans2 =tmp;
+
+	while(1){
+	 tmp = (GPIO_PTC_PADIN >> 2) & 0x0000000F;
+		count=0;
+		if(tmp!=origin){
+
+			ans1=tmp;
+			ans2=tmp;
 			origin = tmp;
 			state=tmp;
 			count=0;
@@ -461,6 +476,8 @@ int main()
 
 		    }
 		}
+
+
 		for(i=0;i<16;i++)
 		GPIO_PTB_GPIO =led;
 
