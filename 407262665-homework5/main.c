@@ -430,7 +430,7 @@ void Display_Line(int line)
   for(i=0;i<35;i++)
   {
     WriteData(line1[i]);
-    delay1(300000);
+//    delay1(300000);
   }
   }
 
@@ -440,7 +440,7 @@ if(line==2){
   for(i=0;i<24;i++)
   {
     WriteData(line2[i]);
-    delay1(300000);
+//    delay1(300000);
   }
 }
 }
