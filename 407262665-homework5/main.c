@@ -418,8 +418,8 @@ void InitialLCD(void)
 void Display_Line(int line)
 {
   //char ABCD[]={'H','E','L','L','O'};
-  char line1[]="i don't know how to do this homework";
-  char line2[]="i just want to need help";
+  char line1[]="OMG,I don't know how to do this homework";
+  char line2[]="OMG,i have no idea, i  want to need help";
   char i;
   WriteIns(0x38);  //FUNCTION SET
   WriteIns(0x0E);  //DISPLAY CONTROL
@@ -427,7 +427,7 @@ void Display_Line(int line)
 
   if(line==1){
   WriteIns(0x80);  //1-LINE DD RAM SET Address
-  for(i=0;i<35;i++)
+  for(i=0;i<40;i++)
   {
     WriteData(line1[i]);
 //    delay1(300000);
@@ -437,7 +437,7 @@ void Display_Line(int line)
 
 if(line==2){
   WriteIns(0xC0);  //2-LINE DD RAM SET Address
-  for(i=0;i<24;i++)
+  for(i=0;i<40;i++)
   {
     WriteData(line2[i]);
 //    delay1(300000);
@@ -471,21 +471,14 @@ int main()
 	//Display_Line(5);
 	delay1(1000000);
 	//WriteIns(0x01);  // clear buffer
-
-	WriteIns(0x80);  //1-LINE DD RAM SET Address
-	for(i=0;i<16;i++)
-		WriteData(255);
-	WriteIns(0xC0);  //2-LINE DD RAM SET Address
-	for(i=0;i<16;i++)
-		WriteData(255);
-
 	DRV_Printf("====================================\r\n", 0);
-
+	int Cursor =1;
 	while(1)
 		{
 			key = 0xFF;
 			GPIO_PTA_DIR = 0x0FF0;
 			GPIO_PTA_CFG = 0x0000;
+
 			for (col=0; col<4; col++)
 			{
 				GPIO_PTA_BS = 0x000F;
@@ -521,22 +514,40 @@ int main()
 					Display_Line(2);
 				}
 				if(key==2){
+					for(i=0;i<24;i++){
+					WriteIns(0x18);
+					Display_Line(1);
+					}
 
 				}
 				if(key==3){
+					for(i=0;i<24;i++){
+					WriteIns(0x1C);
+					Display_Line(1);
+					}
 
 				}
 				if(key==4){
-
+					WriteIns(0x01);
 				}
 				if(key ==5){
-					WriteIns(0x01);
+
+					WriteIns(0x02);
 
 				}
 				if(key==6){
-
+					if(Cursor==1){
+					WriteIns(0x0C);
+					Cursor=0;
+					delay1(1000);
 				}
+					else{
+						WriteIns(0x0E);
+						Cursor=1;
+						delay1(1000);
+					}
 			}
+		}
 		}
 	return 0;
 }

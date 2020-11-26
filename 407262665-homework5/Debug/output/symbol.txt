@@ -75,10 +75,10 @@
 00000932 T WriteIns	/cygdrive/c/Users/CS2019/Desktop/microprocessor/407262665-homework5/Debug/../main.c:390
 0000098e T InitialLCD	/cygdrive/c/Users/CS2019/Desktop/microprocessor/407262665-homework5/Debug/../main.c:403
 000009f4 T Display_Line	/cygdrive/c/Users/CS2019/Desktop/microprocessor/407262665-homework5/Debug/../main.c:418
-00000ae4 T main	/cygdrive/c/Users/CS2019/Desktop/microprocessor/407262665-homework5/Debug/../main.c:450
-00000cdc T memcpy
-00000cf0 T memset
-00000e28 A __data_lmastart
+00000af0 T main	/cygdrive/c/Users/CS2019/Desktop/microprocessor/407262665-homework5/Debug/../main.c:450
+00000d30 T memcpy
+00000d44 T memset
+00000e90 A __data_lmastart
 00100200 B __bss_start
 00100200 R __data_start
 00100200 B _edata
