@@ -418,8 +418,8 @@ void InitialLCD(void)
 void Display_Line(int line)
 {
   //char ABCD[]={'H','E','L','L','O'};
-  char line1[]="OMG,I don't know how to do this homework";
-  char line2[]="OMG,i have no idea, i  want to need help";
+  char line1[]="OMG,I don't know how to do this homework,i have no idea,idon't really know,OMG";
+  char line2[]="OMG,i have no idea, i  want to need help,I don't know how,holly shit,OMG";
   char i;
   WriteIns(0x38);  //FUNCTION SET
   WriteIns(0x0E);  //DISPLAY CONTROL
@@ -427,7 +427,7 @@ void Display_Line(int line)
 
 
   WriteIns(0x80);  //1-LINE DD RAM SET Address
-  for(i=0;i<24;i++)
+  for(i=0;i<40;i++)
   {
 	  if(line==1)
 	  	  	WriteData(line1[i%40]);
@@ -439,7 +439,7 @@ void Display_Line(int line)
 
 
   WriteIns(0xC0);  //2-LINE DD RAM SET Address
-  for(i=24;i<40;i++)
+  for(i=30;i<59;i++)
   {
 	  if(line==1)
 	  	WriteData(line1[i%40]);
