@@ -418,31 +418,36 @@ void InitialLCD(void)
 void Display_Line(int line)
 {
   //char ABCD[]={'H','E','L','L','O'};
-  char line1[]="OMG,I don't know how to do this homework";
-  char line2[]="OMG,i have no idea, i  want to need help";
+  char line1[]="OMG,I don't know how to do this homework,i have no idea,idon't really know,OMG";
+  char line2[]="OMG,i have no idea, i  want to need help,I don't know how,holly shit,OMG";
   char i;
   WriteIns(0x38);  //FUNCTION SET
   WriteIns(0x0E);  //DISPLAY CONTROL
   WriteIns(0x06);  //SET INPUT MODE
 
-  if(line==1){
+
   WriteIns(0x80);  //1-LINE DD RAM SET Address
   for(i=0;i<40;i++)
   {
-    WriteData(line1[i]);
-//    delay1(300000);
-  }
+	  if(line==1)
+	  	  	WriteData(line1[i%40]);
+	  	  else
+	  	  	WriteData(line2[i%40]);
+
+	  delay1(1000);
   }
 
 
-if(line==2){
   WriteIns(0xC0);  //2-LINE DD RAM SET Address
-  for(i=0;i<40;i++)
+  for(i=30;i<59;i++)
   {
-    WriteData(line2[i]);
-//    delay1(300000);
+	  if(line==1)
+	  	WriteData(line1[i%40]);
+	  else
+	  	WriteData(line2[i%40]);
+
+	  delay1(1000);
   }
-}
 }
 
 
@@ -467,12 +472,10 @@ int main()
 	InitialLCD();
 	delay1(1000000);
 	WriteIns(0x01);  // clear buffer
-
 	//Display_Line(5);
-	delay1(1000000);
 	//WriteIns(0x01);  // clear buffer
 	DRV_Printf("====================================\r\n", 0);
-	int Cursor =1;
+	int Cursor =1,curr=0;
 	while(1)
 		{
 			key = 0xFF;
@@ -508,46 +511,46 @@ int main()
 			if (key != 0xFF)
 			{
 				if(key==0){
-					Display_Line(1);
-				}
+						curr=1;
+						Display_Line(1);
+						delay1(10000);
+					}
 				if(key==1){
-					Display_Line(2);
-				}
+						curr=2;
+						Display_Line(2);
+						delay1(10000);
+					}
 				if(key==2){
 					for(i=0;i<24;i++){
 					WriteIns(0x18);
-					Display_Line(1);
+						Display_Line(curr);
 					}
-
 				}
 				if(key==3){
 					for(i=0;i<24;i++){
 					WriteIns(0x1C);
-					Display_Line(1);
+						Display_Line(curr);
 					}
 
 				}
-				if(key==4){
+				if(key==4)
 					WriteIns(0x01);
-				}
-				if(key ==5){
-
+				if(key ==5)
 					WriteIns(0x02);
-
-				}
 				if(key==6){
 					if(Cursor==1){
 					WriteIns(0x0C);
 					Cursor=0;
-					delay1(1000);
+					delay1(10000);
 				}
 					else{
 						WriteIns(0x0E);
 						Cursor=1;
-						delay1(1000);
+						delay1(10000);
 					}
 			}
 		}
-		}
+	}
+
 	return 0;
 }
