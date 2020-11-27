@@ -467,12 +467,10 @@ int main()
 	InitialLCD();
 	delay1(1000000);
 	WriteIns(0x01);  // clear buffer
-
 	//Display_Line(5);
-	delay1(1000000);
 	//WriteIns(0x01);  // clear buffer
 	DRV_Printf("====================================\r\n", 0);
-	int Cursor =1;
+	int Cursor =1,line1=0,line2=0;
 	while(1)
 		{
 			key = 0xFF;
@@ -508,43 +506,92 @@ int main()
 			if (key != 0xFF)
 			{
 				if(key==0){
-					Display_Line(1);
+					if(line1==0){
+						Display_Line(1);
+						line1=1;
+						delay1(5000);
+					}
+					else{
+						 WriteIns(0xC0);
+						for(i=0;i<24;i++)
+							WriteIns(0x01);
+						line1=0;
+						delay1(5000);
+					}
 				}
 				if(key==1){
-					Display_Line(2);
+					if(line2==0){
+						Display_Line(2);
+						line2=1;
+						delay1(5000);
+					}
+					else{
+						 WriteIns(0xC0);
+						for(i=0;i<24;i++)
+							WriteIns(0x01);
+						line2=0;
+						delay1(5000);
+					}
+
 				}
 				if(key==2){
 					for(i=0;i<24;i++){
 					WriteIns(0x18);
-					Display_Line(1);
+					if(line1==1){
+						Display_Line(1);
 					}
+					else{
+						WriteIns(0x80);
+						for(i=0;i<24;i++)
+							WriteIns(0x01);
+					}
+					if(line2==1){
+						Display_Line(2);
+					}
+					else{
+						WriteIns(0xC0);
+						for(i=0;i<24;i++)
+							WriteIns(0x01);
 
+					}
+					}
 				}
 				if(key==3){
 					for(i=0;i<24;i++){
 					WriteIns(0x1C);
-					Display_Line(1);
+					if(line1==1){
+						Display_Line(1);
+					}
+					else{
+						WriteIns(0x80);
+						for(i=0;i<24;i++)
+								WriteIns(0x01);
+					}
+					if(line2==1){
+						Display_Line(2);
+					}
+					else{
+						WriteIns(0xC0);
+						for(i=0;i<24;i++)
+							WriteIns(0x01);
 					}
 
+					}
 				}
-				if(key==4){
+				if(key==4)
 					WriteIns(0x01);
-				}
-				if(key ==5){
-
+				if(key ==5)
 					WriteIns(0x02);
-
-				}
 				if(key==6){
 					if(Cursor==1){
 					WriteIns(0x0C);
 					Cursor=0;
-					delay1(1000);
+					delay1(5000);
 				}
 					else{
 						WriteIns(0x0E);
 						Cursor=1;
-						delay1(1000);
+						delay1(5000);
 					}
 			}
 		}
