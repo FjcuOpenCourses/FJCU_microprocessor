@@ -509,28 +509,28 @@ int main()
 					if(line1==0){
 						Display_Line(1);
 						line1=1;
-						delay1(5000);
+						delay1(10000);
 					}
 					else{
 						 WriteIns(0xC0);
 						for(i=0;i<24;i++)
 							WriteIns(0x01);
 						line1=0;
-						delay1(5000);
+						delay1(10000);
 					}
 				}
 				if(key==1){
 					if(line2==0){
 						Display_Line(2);
 						line2=1;
-						delay1(5000);
+						delay1(10000);
 					}
 					else{
 						 WriteIns(0xC0);
 						for(i=0;i<24;i++)
 							WriteIns(0x01);
 						line2=0;
-						delay1(5000);
+						delay1(10000);
 					}
 
 				}
@@ -586,12 +586,12 @@ int main()
 					if(Cursor==1){
 					WriteIns(0x0C);
 					Cursor=0;
-					delay1(5000);
+					delay1(10000);
 				}
 					else{
 						WriteIns(0x0E);
 						Cursor=1;
-						delay1(5000);
+						delay1(10000);
 					}
 			}
 		}

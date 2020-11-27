@@ -1296,7 +1296,7 @@ Disassembly of section .text:
  c8c:	49 ff fe b4 	jal 9f4 <Display_Line>
  c90:	84 01       	movi55 $r0,#0x1
  c92:	f0 83       	swi37.sp $r0,[+#0xc]
- c94:	44 00 13 88 	movi $r0,#0x1388
+ c94:	44 00 27 10 	movi $r0,#0x2710
  c98:	49 ff fb 54 	jal 340 <delay1>
  c9c:	d5 17       	j8 cca <main+0x1da>
  c9e:	44 00 00 c0 	movi $r0,#0xc0
@@ -1314,7 +1314,7 @@ Disassembly of section .text:
  cbc:	e9 f8       	bnezs8 cac <main+0x1bc>
  cbe:	84 00       	movi55 $r0,#0x0
  cc0:	f0 83       	swi37.sp $r0,[+#0xc]
- cc2:	44 00 13 88 	movi $r0,#0x1388
+ cc2:	44 00 27 10 	movi $r0,#0x2710
  cc6:	49 ff fb 3d 	jal 340 <delay1>
  cca:	f0 05       	lwi37.sp $r0,[+#0x14]
  ccc:	5a 08 01 24 	bnec $r0,#0x1,d14 <main+0x224>
@@ -1324,7 +1324,7 @@ Disassembly of section .text:
  cd6:	49 ff fe 8f 	jal 9f4 <Display_Line>
  cda:	84 01       	movi55 $r0,#0x1
  cdc:	f0 82       	swi37.sp $r0,[+#0x8]
- cde:	44 00 13 88 	movi $r0,#0x1388
+ cde:	44 00 27 10 	movi $r0,#0x2710
  ce2:	49 ff fb 2f 	jal 340 <delay1>
  ce6:	d5 17       	j8 d14 <main+0x224>
  ce8:	44 00 00 c0 	movi $r0,#0xc0
@@ -1342,7 +1342,7 @@ Disassembly of section .text:
  d06:	e9 f8       	bnezs8 cf6 <main+0x206>
  d08:	84 00       	movi55 $r0,#0x0
  d0a:	f0 82       	swi37.sp $r0,[+#0x8]
- d0c:	44 00 13 88 	movi $r0,#0x1388
+ d0c:	44 00 27 10 	movi $r0,#0x2710
  d10:	49 ff fb 18 	jal 340 <delay1>
  d14:	f0 05       	lwi37.sp $r0,[+#0x14]
  d16:	5a 08 02 3c 	bnec $r0,#0x2,d8e <main+0x29e>
@@ -1458,14 +1458,14 @@ Disassembly of section .text:
  e2e:	49 ff fd 82 	jal 932 <WriteIns>
  e32:	84 00       	movi55 $r0,#0x0
  e34:	f0 84       	swi37.sp $r0,[+#0x10]
- e36:	44 00 13 88 	movi $r0,#0x1388
+ e36:	44 00 27 10 	movi $r0,#0x2710
  e3a:	49 ff fa 83 	jal 340 <delay1>
  e3e:	d5 0a       	j8 e52 <main+0x362>
  e40:	84 0e       	movi55 $r0,#0xe
  e42:	49 ff fd 78 	jal 932 <WriteIns>
  e46:	84 01       	movi55 $r0,#0x1
  e48:	f0 84       	swi37.sp $r0,[+#0x10]
- e4a:	44 00 13 88 	movi $r0,#0x1388
+ e4a:	44 00 27 10 	movi $r0,#0x2710
  e4e:	49 ff fa 79 	jal 340 <delay1>
  e52:	48 ff fe 96 	j b7e <main+0x8e>
  e56:	92 00       	nop16
