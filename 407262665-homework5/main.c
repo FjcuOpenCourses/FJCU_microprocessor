@@ -425,24 +425,29 @@ void Display_Line(int line)
   WriteIns(0x0E);  //DISPLAY CONTROL
   WriteIns(0x06);  //SET INPUT MODE
 
-  if(line==1){
+
   WriteIns(0x80);  //1-LINE DD RAM SET Address
-  for(i=0;i<40;i++)
+  for(i=0;i<24;i++)
   {
-    WriteData(line1[i]);
-//    delay1(300000);
-  }
+	  if(line==1)
+	  	  	WriteData(line1[i%40]);
+	  	  else
+	  	  	WriteData(line2[i%40]);
+
+	  delay1(1000);
   }
 
 
-if(line==2){
   WriteIns(0xC0);  //2-LINE DD RAM SET Address
-  for(i=0;i<40;i++)
+  for(i=24;i<40;i++)
   {
-    WriteData(line2[i]);
-//    delay1(300000);
+	  if(line==1)
+	  	WriteData(line1[i%40]);
+	  else
+	  	WriteData(line2[i%40]);
+
+	  delay1(1000);
   }
-}
 }
 
 
@@ -470,7 +475,7 @@ int main()
 	//Display_Line(5);
 	//WriteIns(0x01);  // clear buffer
 	DRV_Printf("====================================\r\n", 0);
-	int Cursor =1,line1=0,line2=0;
+	int Cursor =1,curr=0;
 	while(1)
 		{
 			key = 0xFF;
@@ -506,77 +511,27 @@ int main()
 			if (key != 0xFF)
 			{
 				if(key==0){
-					if(line1==0){
+						curr=1;
 						Display_Line(1);
-						line1=1;
 						delay1(10000);
 					}
-					else{
-						 WriteIns(0xC0);
-						for(i=0;i<24;i++)
-							WriteIns(0x01);
-						line1=0;
-						delay1(10000);
-					}
-				}
 				if(key==1){
-					if(line2==0){
+						curr=2;
 						Display_Line(2);
-						line2=1;
 						delay1(10000);
 					}
-					else{
-						 WriteIns(0xC0);
-						for(i=0;i<24;i++)
-							WriteIns(0x01);
-						line2=0;
-						delay1(10000);
-					}
-
-				}
 				if(key==2){
 					for(i=0;i<24;i++){
 					WriteIns(0x18);
-					if(line1==1){
-						Display_Line(1);
-					}
-					else{
-						WriteIns(0x80);
-						for(i=0;i<24;i++)
-							WriteIns(0x01);
-					}
-					if(line2==1){
-						Display_Line(2);
-					}
-					else{
-						WriteIns(0xC0);
-						for(i=0;i<24;i++)
-							WriteIns(0x01);
-
-					}
+						Display_Line(curr);
 					}
 				}
 				if(key==3){
 					for(i=0;i<24;i++){
 					WriteIns(0x1C);
-					if(line1==1){
-						Display_Line(1);
-					}
-					else{
-						WriteIns(0x80);
-						for(i=0;i<24;i++)
-								WriteIns(0x01);
-					}
-					if(line2==1){
-						Display_Line(2);
-					}
-					else{
-						WriteIns(0xC0);
-						for(i=0;i<24;i++)
-							WriteIns(0x01);
+						Display_Line(curr);
 					}
 
-					}
 				}
 				if(key==4)
 					WriteIns(0x01);
@@ -595,6 +550,7 @@ int main()
 					}
 			}
 		}
-		}
+	}
+
 	return 0;
 }
