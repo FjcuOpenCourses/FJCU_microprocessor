@@ -1,10 +1,5 @@
-//Sample using LiquidCrystal library
+
 #include <LiquidCrystal.h>
-/*******************************************************
-This program will test the LCD panel and the buttons
-Mark Bramwell, July
-2010
-********************************************************/
 // select the pins used on the LCD panel
 LiquidCrystal lcd(8, 9, 4, 5, 6, 7);
 char KeyValue[]={'1','2','3','A','4','5','6','B','7','8','9','C','*','0','#','D'};
@@ -34,18 +29,20 @@ void loop() {
 static int keypressedcount=0;
 byte keyindex=0;
 if(keyscan()==true){
-keyindex=(Row-1)*4+Col;
-delay(5);
-if((keyscan()==true) && (keyindex==(Row-1)*4+Col)){
-lcd.clear();
-lcd.setCursor(0,1);
-lcd.print(KeyValue[keyindex-1]);
-digitalWrite(A0,LOW);
-digitalWrite(A1,LOW);
-digitalWrite(A2,LOW);
-digitalWrite (A3,LOW);
-delayMicroseconds(100);
-}
+    keyindex=(Row-1)*4+Col;
+    delay(5);
+    if((keyscan()==true) ){
+     keyindex==(Row-1)*4+Col;
+    lcd.clear();
+    lcd.setCursor(0,1);
+    //lcd.print(KeyValue[keyindex-1]);
+    lcd.print(keyindex);
+    digitalWrite(A0,LOW);
+    digitalWrite(A1,LOW);
+    digitalWrite(A2,LOW);
+    digitalWrite (A3,LOW);
+    delayMicroseconds(100);
+    }
 }
 }
 bool keyscan( )
@@ -147,19 +144,20 @@ digitalWrite(A2, HIGH);
 Col= 3;Row=3;
 keypressed = true;
 return(keypressed);
+}
 //Read keys in row.4
-if(digitalRead(13)==LOW)
+if(digitalRead(13)==LOW){
 digitalWrite(A2, HIGH);
 Col=3;Row=4;
 keypressed = true;
 return(keypressed);
 }
 //scan col 4
-if(digitalRead(13)==LOW){
 digitalWrite (A0,HIGH);
 digitalWrite(A1, HIGH);
 digitalWrite(A2, HIGH);
 digitalWrite(A3, LOW);
+if(digitalRead(13)==LOW){
 delayMicroseconds(100);
 //Read keys in row.1
 }
