@@ -1,6 +1,0 @@
-Lab 9 (CF1)  - LED, 7-Seg, and Push-Button Control
-      課堂實作 ACET-實作題-v1.0  之 1, 2 題。
-
-Upload arduino codes.
-
-Due 2020.12.30
